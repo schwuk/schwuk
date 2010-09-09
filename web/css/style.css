@@ -4,13 +4,13 @@ body {
 }
 
 #container {
-	background: url(../img/schwuk_bg.png);
+	background: url(../img/schwuk_bg.png) no-repeat;
 }
 
 #content {
-	margin-top: 150px;
+	margin-top: 135px;
 	background-color: ;
-	color: #555;
+	color: #666;
 	font-size: 2.5em;
 	font-family: Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;
 	min-height: 500px;
@@ -30,6 +30,6 @@ p a:hover {
 }
 
 p em {
-	color: #888;
+	color: #999;
 }
 
