@@ -1,0 +1,18 @@
+--- 
+kind: article
+created_at: 2009-02-01 22:55:14 +00:00
+title: Linkpot Updates
+tags: 
+- Developing
+- Django
+- linkpot
+- Python
+---
+
+Quite a long time ago I took over stewardship of <a href="http://linkpot.net">Linkpot</a> from Ben Thorp, with a whole bunch of ideas of stuff I wanted to add to it. Initially though I just got it working again (on <a href="http://djangoproject.com">Django</a> 1.0) and moved to my hosting.
+
+Today I finally got around to finishing the first batch of changes: namely Django 1.0.2 and moving from using a text file based word list to a database (which was already used for storing the URLs). This improves performance and opens up the possibility for a whole other bunch of enhancements (including using your own words).
+
+At the same time I added some improved error handling & error messages, and the ability to 'shortcut' previewing a link by suffixing a hyphen (-) to the word e.g. <a href="http://linkpot.net/recursive-">http://linkpot.net/recursive-</a>.
+
+If you use Linkpot, please go kick the tyres and <a href="http://schwuk.com/contact">let me know</a> if you find any problems. If you don't, why don't you? :)

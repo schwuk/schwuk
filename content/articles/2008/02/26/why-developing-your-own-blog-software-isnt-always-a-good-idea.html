@@ -1,0 +1,35 @@
+--- 
+kind: article
+created_at: 2008-02-26 10:58:49 +00:00
+title: Why developing your own blog software isn't always a good idea
+tags: 
+- coding
+- Developing
+- php
+- web 2.0
+- wordpress
+---
+
+<a href="http://codepoets.co.uk/" title="Visit David Goodwin's site" target="_blank">David Goodwin</a> made the following <a href="http://schwuk.com/articles/2008/02/21/migrated-to-wordpress#comment-476" title="View David's original comment" target="_blank">comment</a> on my post about <a href="http://schwuk.com/articles/2008/02/21/migrated-to-wordpress" title="Read my post about migrating to WordPress" target="_blank">migrating to WordPress</a>:
+<blockquote>Despite every ‘web2.0′ language/framework having a ‘create a blog application in 5 minutes’ example, it’s amusing to see even a developer default to Wordpress, which is still written for php4</blockquote>
+I can see his point, and I agree that is amusing. Of course I'm not going to miss a chance to get on my soapbox though. :)
+<!--more-->
+
+<small><a href="http://www.flickr.com/people/-SW-/" title="-SW-" target="_blank"></a></small><a href="http://www.flickr.com/photos/93193895@N00/2178907447/" target="_blank"><img src="http://farm3.static.flickr.com/2360/2178907447_5c825195c8_m.jpg" border="0" /></a>
+<small><a href="http://www.photodropper.com/creative-commons/" title="creative commons" target="_blank"><img src="http://schwuk.com/wp-content/plugins/photo_dropper//images/cc.gif" alt="Creative Commons License" border="0" /></a> <a href="http://www.photodropper.com/photos/" target="_blank">photo</a> credit: <a href="http://www.flickr.com/people/-SW-/" title="-SW-" target="_blank">-SW-</a></small>
+
+<strong>Coding</strong> a blog-style application is easy. In MVC terms you only really need two controllers: one for posts and another for comments. Everything else is just gravy.
+
+<strong>Developing</strong> a blog-style appliction is hard. You have to support feeds (preferably RSS and Atom). You should support Trackbacks. Comment moderation and spam protection are other must-haves for a site with any amount of traffic. These might be gravy, but without it the meal is incomplete.
+
+<strong>Maintaining</strong> a blog-style application is even more work. XSS, SQL injection, security, spam. The list goes on and on.
+
+Sure, coding a blog is fun and easy, and something every developer should do at least once. Developing a blog application is much more work, and something that will never be truly complete. Maintaining that application will be far more work than you ever planned.
+
+So the question has got to be: is it worth it?
+
+For me - and obviously lots of other developers - the answer is a resounding no. Our time is better spent creating something new than re-inventing the wheel.
+
+As for David's comment about PHP4, by all accounts the code for WordPress is not pretty - I've been <a href="http://schwuk.com/articles/2008/02/21/migrated-to-wordpress#comment-317" title="View the comment" target="_blank">advised</a> not to look under the hood - but that's not my problem. I do wonder why no-one has managed to re-create WordPress in one of the Web 2.0 frameworks though. Is it because they can't, or just because they want to try to be different?
+
+<em>This post was written using <a href="http://pyroom.org" title="Visit the PyRoom site" target="_blank">PyRoom</a> - writing without distractions.</em>

@@ -1,0 +1,29 @@
+--- 
+kind: article
+created_at: 2006-09-29 18:08:00 +01:00
+title: Outgrowing my server
+tags: 
+- hosting
+- linode
+- Linux
+- Ruby On Rails
+- rubyonrails
+- uml
+- vm
+---
+
+<p>I&#8217;ve been running a <a href="http://linode.com">Linode</a> supplied <acronym title="User Mode Linux">UML</acronym> virtual server for the best part of two years now. I have been extremely happy with it, but I&#8217;m now <strong>repeatedly</strong> running into performance problems with it, and things will only get worse. Basically the problem is <a href="http://rubyonrails.org">Ruby on Rails</a>, and more specifically the <a href="http://typosphere.org/trac">Typo</a> weblog software. Ditching RoR is not an option because I host more than one application (with more to come) on it, and whilst I could ditch Typo for something lighter (but still RoR based) I don&#8217;t want to &#8211; even though that decision is mainly based on inertia. However I need to do something because occasionally my server will be brought to its knees and I get sick of sorting it out, especially as I host other sites on this server. Although I could switch to some <a href="http://railsmachine.com/">managed</a> RoR hosting, my preference to to host my own because I although I don&#8217;t like solving problems, I do like causing them! :)</p>
+
+
+	<p>As I see it, I&#8217;ve got the following options:</p>
+
+
+	<ol>
+	<li>Pay for a bigger Linode</li>
+		<li>Buy another VM and move either the Rails apps or the other sites to there</li>
+		<li>Switch to a Xen hosting provider</li>
+		<li>Some combination of the above</li>
+	</ol>
+
+
+	<p>Before I make a final decision, has anyone got any suggestions/advice (other than ditch Rails)?</p>

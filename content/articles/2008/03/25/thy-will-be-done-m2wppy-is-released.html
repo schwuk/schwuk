@@ -1,0 +1,37 @@
+--- 
+kind: article
+created_at: 2008-03-25 16:31:12 +00:00
+title: "Thy will be done: m2wp.py is released"
+tags: 
+- Developing
+- gpl
+- mephisto
+- Python
+- wordpress
+- wxr
+---
+
+<ins datetime="2010-08-10T14:13:55+00:00">Updated as I've moved the code to <a href="http://github.com/schwuk/m2wp">GitHub</a>.</ins>
+
+After dragging my heels for a bit, I'm finally getting around to releasing my code for generating WordPress eXtended RSS (WXR) files from Mephisto database.
+
+I agreed with <a href="http://schwuk.com/articles/2008/02/21/migrated-to-wordpress#comment-330">Stuart</a> that it should be released regardless of demand, but it really did need some cleaning up first!
+
+So, without any further ado, pomp, or ceremony I give you m2wp.py!
+
+...
+
+Oh, you actually want to see the code?
+<ul>
+	<li>If you just want the file, you can grab it <a href="http://github.com/schwuk/m2wp">here</a></li>
+	<li>If you just want to see the the code, you can see it <a href="http://github.com/schwuk/m2wp/blob/master/m2wp.py">here</a></li>
+	<li>If you want to be all modern and distributed, you can grab the code using <a href="http://git-scm.com/">Git</a> like this*: <pre>git clone git://github.com/schwuk/m2wp.git</pre></li>
+</ul>
+* Why aren't I using <a href="http://launchpad.net">Launchpad</a>? Because I seriously doubt there will be any further development of this. However if people want to submit patches, they are more than welcome to and I will publish them in my repository.
+
+A couple of caveats:
+<ul>
+	<li>It assumes you're using a PostgreSQL database. If you want something different, add it.</li>
+	<li>Due to the wonders of WordPress, you can't have tags and categories with the same name, but you can in Mephisto. You'll need to fix this once you've imported into WordPress.</li>
+	<li>The script is released under the <a href="http://www.gnu.org/licenses/gpl.html">GPL</a>, and all that that entails.</li>
+</ul>

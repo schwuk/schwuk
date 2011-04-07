@@ -1,0 +1,95 @@
+--- 
+kind: article
+created_at: 2009-05-14 13:34:22 +01:00
+title: Shiny New Keys
+tags: 
+- encryption
+- gpg
+- Linux
+- Personal
+- Ubuntu
+---
+
+Like <a href="http://grahambinns.com/blog/2009/05/14/changing-locks/">others</a>, it seems that now <a href="http://www.debian-administration.org/users/dkg/weblog/48">is a good time</a> to be updating your GPG keys. I' have always maintained at least two sets of keys - personal and professional - and I had already generated the new ones before I realised that it is probably no longer an ideal setup since the two have become more entwined with my work on Ubuntu for Canonical. However, if it is not broken (or compromised)...
+
+Both keys are cross-signed with each other, and with the keys they are replacing.
+
+Like everyone else, the old keys will remain active for a bit, but I will start using the new ones straight away.
+
+<pre>
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+- -----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+My new personal key is 860CFBD3, and it replaces 36816D1D.
+
+The fingerprint of the new key is:
+
+    E6CD C442 9264 66B7 D7B6  9B6D 81C5 77C6 860C FBD3
+
+You can obtain the new key with:
+
+    gpg --keyserver keyserver.ubuntu.com --recv-keys 860CFBD3
+
+This text has been signed with the new key, and the resulting text signed with the old key.
+- -----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (GNU/Linux)
+
+iQEcBAEBCAAGBQJKDAzPAAoJEIHFd8aGDPvTgH8H/jpBRnk94r+0kjFASaVdJhwK
+QoRthlUSoi5NTxbXgD8sJfSRxqvwB7OkWXGQp9hfUpNaaEh6EVnbJvn1bTMdwKrA
+39DDNMcbvsnX6OtsCOJn+G1lu7wVhlsas+TCpA1OeB8zoTdw/gWpy36BZ6QYGHv7
+Al+6PRXrKag5AxFBvttTjBHZ9uuNEVIaI65odOMs7JLdrv7GXFUUBqeFAQ8JP0rV
+vsRS9AMX/LFIOImPtdZ4+v7/ovOIixaf2k14TTVuriJLoEJyvTZJEBMhzcpYRL3W
+8vwKMw09nzgoruwtD43RATFCl3qLYrNVGsBpwoGtLMxuSlz0ucNCFcTPqrAd2d0=
+=DrlB
+- -----END PGP SIGNATURE-----
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (GNU/Linux)
+
+iEYEARECAAYFAkoMDPMACgkQUKCB1TaBbR0iSwCeMTp3LYa6jg41b1y1zxUoQyBZ
+WnkAoNJELJDpyMcb132oQZZfp6kE3IiV
+=1Sof
+-----END PGP SIGNATURE-----
+</pre>
+
+<pre>
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+- -----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+My new professional key is AAE29F31, and it replaces 09B7D2A8.
+
+The fingerprint of the new key is:
+
+    3408 914E 446C 63B1 3848  A233 843E DF5A AAE2 9F31
+
+You can obtain the new key with:
+
+    gpg --keyserver keyserver.ubuntu.com --recv-keys AAE29F31
+
+This text has been signed with the new key, and the resulting text signed with the old key.
+- -----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (GNU/Linux)
+
+iQEcBAEBCAAGBQJKDA3YAAoJEIQ+31qq4p8x/GgH/i07tmP1TJeSn1pzDPpLUg8S
+gKrPQnWsteYfVnnXux2qpEy+j9RFSMJQOTGbk6TYnCHJ7UO8+El/sq0yNRQBYHTA
+LLk/3UCTX5xD2C7zyJLtesX9lF/8napHwx9svH6bLHn06m1w6I561vui4AFME59A
+849NKhXvPP7LzOFPPAt2J6eHuTPt9M6ut+XVgKhNq77EpCuxMqe4bE/c+IC2hjmJ
+pORqe1wbgIDAGgSThFnAmGFzFgxjTFXWP0/nmQrqyVgLfiV/GO7inlfpSsyO1j1t
+GulXcQxUaK5N6fBjUc03q2MSNziio9uLITlBrYvYad/g/N6uNIJ2GxjZA9JNGVY=
+=hsS0
+- -----END PGP SIGNATURE-----
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (GNU/Linux)
+
+iEYEARECAAYFAkoMDgIACgkQbXiLjAm30qhliQCgpIv9bf3mot0KbuC09uDuI6mZ
+20UAoIBTyHHZPS1+q0pOZ58hu6tdf4M4
+=BiAI
+-----END PGP SIGNATURE-----
+</pre>
+
+If you're using <a href="http://getfiregpg.org/">FireGPG</a>, it will get confused by the nested signatures. To verify it, you should save the text locally and verify it with <code>gpg --verify</code>.

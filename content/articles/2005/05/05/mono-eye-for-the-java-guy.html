@@ -1,0 +1,44 @@
+--- 
+kind: article
+created_at: 2005-05-05 08:03:36 +01:00
+title: Mono eye for the Java guy
+tags: 
+- Uncategorized
+---
+
+<p>Balazs Fejes has posted an article on his <a href="http://fb2.hu/x10/Articles/MonoForFun.html">experiments in Mono</a>, which has got a Java slant (seeing as that&#8217;s his day job).</p>
+
+
+	<p>In it, he makes a few glaring mistakes, but also raises a very good point.</p>
+
+
+	<p>Dealing with mistakes first &#8211; he&#8217;s trying to combine Mono on Win32 with Visual C# Express which is a) still in beta and b) based on .NET 2.0 (which Mono does not yet fully implement). This is a recipe for headaches. Whilst you <em>can</em> do Mono development with Visual Studio, I would recommend using <a href="http://www.icsharpcode.net/OpenSource/SD/Default.aspx">SharpDevelop</a> which is a) free, b) supports Mono and c) was the basis for <a href="http://www.monodevelop.com/">MonoDevelop</a>.</p>
+
+
+	<p>I know, I know &#8211; Mono and .NET are supposed to be interchangeable and they are, but Visual Studio and Mono have a very different way of doing things in terms of builds etc. If you want to target .NET and support Mono, by all means use VS, but if you want to target Mono and support .NET you need to be a bit more clever about it.</p>
+
+
+	<h3>Building Bridges</h3>
+
+
+	<p>This segues nicely into a pet rant of mine &#8211; cross platform (or even just distro) compilation.</p>
+
+
+	<p>Mono is supposed to cross platform (and cross framework), yet building applications targetted for Linux on Win32 is pretty much no go. Ignoring the dependencies for a moment, most Mono-based Linux apps use <span class="caps">GNU</span> Make and autotools for creating builds. This is fine on Linux, but on Win32 you either need find ports or rely on something like <a href="http://www.cygwin.com/">Cygwin</a> to provide them.  Even then, you&#8217;ve got the rest of the dependencies to worry about.</p>
+
+
+	<p>Instead of falling into the old <code>./configure; make; make install</code> trap, why didn&#8217;t Mono embrace <a href="http://nant.sourceforge.net/">NAnt</a> or somthing like it. Then as long as you had Mono and NAnt, you could build everything else. You see this in other languages/frameworks &#8211; Perl has <span class="caps">CPAN</span> (and <span class="caps">PPM</span> if you&#8217;re using ActiveState), Ruby has RubyGems, <span class="caps">PHP</span> has Perl etc. With those, once you&#8217;ve got the language and the tool (which typically comes with it) you can get (pretty much) whatever you need. With Mono you have to get this and build it, then that and build it, and then the other and build it ad infinitum.</p>
+
+
+	<h3>Availability</h3>
+
+
+	<p>From the article:</p>
+
+
+	<blockquote>
+		<p>Perhaps the one thing that baffled me most is that the Mono framework is not fully embraced by the Linux ecosystem. When I tried my application with the latest Ubuntu LiveCD, I realised that not only Mono was not in the default configuration, I could not even install a consistent set of components for Mono and GtkSharp.</p>
+	</blockquote>
+
+
+	<p>How <strong>very</strong> true. It doesn&#8217;t matter how good Mono is if people can&#8217;t use it. Sure use developers can (and will) compile it ourselves, but how can we (and the developers of Mono) expect people to use our applications if a) they can&#8217;t <strong>easily</strong> get Mono or worse b) only get an old version of Mono.</p>

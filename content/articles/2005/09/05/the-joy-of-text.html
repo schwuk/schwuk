@@ -1,0 +1,18 @@
+--- 
+kind: article
+created_at: 2005-09-05 23:08:00 +01:00
+title: The joy of text
+tags: 
+- Uncategorized
+---
+
+<p>Really the title should be &#8220;the joy of <span class="caps">UNIX</span>&#8221;, but this is funnier.</p>
+
+
+	<p>I love text files &#8211; you can do so much with them. Today I had a problem at work where a user was telling me that a file was broken because they were only identifying ~600 unique identifiers in a file &gt; 214,000 lines long. The problem was  that they were loading it into Excel which only supports 64K rows. I had to back this up though, and this is where my love of text files (and <span class="caps">UNIX</span> utils) comes to the fore.</p>
+
+
+	<p>Each identifier has multiple rows in the file, and I just wanted to count the unique identifiers in the original file and one I&#8217;d truncated to 64K lines. This is on a Windows box. I spent a little while considering the options (loading it into a database table, using something like <a href="http://www.logparser.com/">Log Parser</a>), then remembered good old <a href="http://www.gnu.org/software/gawk/gawk.html">awk</a> and <a href="http://www.gnu.org/software/grep/">grep</a>, and the fact that I had <a href="http://www.cygwin.com/">Cygwin</a> installed. A very simple awk script (to only print the identifier if the value of another column was correct &#8211; this easily reduced it to a list of unique identifiers) from which the output was piped to grep to count the number of identifiers, and it was job done.</p>
+
+
+	<p>The only thing I was missing was a util to truncate the file &#8211; I had to do it by hand. I&#8217;m sure something exists, I&#8217;m just not aware of it.</p>

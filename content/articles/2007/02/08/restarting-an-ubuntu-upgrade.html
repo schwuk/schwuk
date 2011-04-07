@@ -1,0 +1,25 @@
+--- 
+kind: article
+created_at: 2007-02-08 11:12:00 +00:00
+title: Restarting an Ubuntu upgrade
+tags: 
+- cd
+- Linux
+- tip
+- Ubuntu
+- upgrade
+---
+
+<p>I&#8217;m currently trying to upgrade a machine using an Ubuntu CD. This is normally pretty painless &#8211; stick the CD in, follow the prompts and away you go. Unfortunately I chose the wrong option and cancelled the upgrade, and couldn&#8217;t get it to restart again.</p>
+
+
+	<p>After a bit of head scratching I figured it out:</p>
+
+
+<pre>
+<code>
+$ sudo sh /cdrom/cdromupgrade
+</code>
+</pre>
+
+	<p>You need to specify the full path, otherwise the process fails.</p>

@@ -1,0 +1,82 @@
+--- 
+kind: article
+created_at: 2004-07-24 17:08:00 +01:00
+title: Why .NET?
+tags: 
+- Uncategorized
+---
+
+<p>I was speaking to <a href="http://www.webeditorblog.com/">Matt</a> from <a href="http://www.lugradio.org">LugRadio</a> on <a href="http://www.skype.com">Skype</a> earlier today, and we got onto the topic of <a href="http://www.mono-project.com/">Mono</a> and <a href="http://msdn.microsoft.com/netframework/">.NET</a> (the Framework, not the &#8216;brand&#8217; that has been badly abused).</p>
+
+
+	<p>I tried to explain to him &#8216;Why .NET?&#8217; and by association &#8216;Why Mono?&#8217;, which prompted me to write this.</p>
+
+
+	<h3>Jack of all trades&#8230;</h3>
+
+
+	<p>First a little background&#8230; I regularly code in <a href="http://www.perl.com/">Perl</a>, <a href="http://www.php.net"><span class="caps">PHP</span></a>, <a href="http://www.borland.com/delphi/">Delphi</a>, and <a href="http://msdn.microsoft.com/vcsharp/">C#</a>. I&#8217;ve played a little with C, C++, and Java. I&#8217;m familiar with <span class="caps">HTML</span>, XHTML, <span class="caps">XML</span>, CSS, and JavaScript. I can also do VB/VB.NET, but only under extreme duress! I&#8217;m in the process of learning <a href="http://www.python.org/">Python</a>.</p>
+
+
+	<p>So I&#8217;ve got plenty of tools to choose from when I&#8217;m writing applications, so why do I prefer developing in .NET?</p>
+
+
+	<h3>Horses for courses&#8230;</h3>
+
+
+	<p>That statement isn&#8217;t entirely true &#8211; I prefer coding in all of them (except VB!). Perl is my favourite for quick scripts and prototyping &#8211; I&#8217;m also learning Python for these purposes. Delphi is my preference for standalone MS Windows applications &#8211; it&#8217;s lack of runtimes elevates it above all other offerings here. For &#8216;public&#8217; internet sites, <span class="caps">PHP</span>, Perl &#38; <span class="caps">CGI</span> or mod_python will be used, mainly for cost and security.</p>
+
+
+	<p>Now, here&#8217;s why I like .NET:</p>
+
+
+	<p><strong>Web Applications</strong> &#8211; <span class="caps">ASP</span>.NET allows you to create event driven applications easily. This requires extensive JavaScript knowledge in other languages.</p>
+
+
+	<p><strong>Web Services</strong> &#8211; .NET makes creating and consuming web services ridiculously easy. I know they can be done (relatively easily) in other languages, but in .NET they are a part of the furniture.</p>
+
+
+	<p><strong>Security</strong> &#8211; <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpguide/html/cpconcodeaccesssecurity.asp">Code Access Security</a> is &#8211; initially &#8211; quite difficult to get your head round. As a consequence it&#8217;s ignored by a lot of developers, but it allows very fine-grained control over who and how your code is used, and what rights your code needs to be able to execute. Authentication is built-in to <span class="caps">ASP</span>.NET applications.</p>
+
+
+	<p><strong>Cross Platform</strong> &#8211; Yes, .NET only runs on MS Windows, but MS Windows runs on several platforms &#8211; PCs, Pocket PCs and SmartPhones. Combine these with
+web services, and you have a killer solution.</p>
+
+
+	<p><strong>Object Orientation</strong> &#8211; OO is very much a part of .NET.</p>
+
+
+	<p><strong>nTier</strong> &#8211; A nice buzzword, but once you understand the concept, .NET makes it easy to implement.</p>
+
+
+	<p><strong>Visual Studio.NET</strong> &#8211; This is a big part of why .NET works so well. I learnt <span class="caps">ASP</span>.NET via Notepad and the <span class="caps">SDK</span>, and I managed. When I moved up to VS.NET it opened up a whole new world. VS.NET is a bloody good <acronym title="Integrated Development Environment">IDE</acronym>, and it makes writing applications very quick.</p>
+
+
+	<p>Note that MS Windows applciations (with the exception of consuming Web Services) are not a reason I use .NET.</p>
+
+
+	<p>To sum it up, if I look at a problem I can visualise and implement the solution in .NET very quickly. If I try to do the same in another language, I get extremely frustrated &#8211; e.g. using OO in <span class="caps">PHP</span> and Perl.</p>
+
+
+	<h3>Snake Oil</h3>
+
+
+	<p>Don&#8217;t get me wrong. .NET is not a panacea for development &#8211; it has it&#8217;s fair share of problems but due it&#8217;s extensible nature most can be remedied without involving Microsoft. A huge community &#8211; encouraged by Microsoft &#8211; has grown around it, and unlike it&#8217;s predecessors a lot of code, libraries, and utilities are released for free &#8211; either under the <a href="http://www.gnu.org/copyleft/gpl.html"><span class="caps">GPL</span></a> or comparable license. There is still a lot of proprietary or shareware stuff, but some are well worth paying for. If that really rubs you up the wrong way, just remember you don&#8217;t need them to your job done.</p>
+
+
+	<p>One of my biggest problems with it is that the <span class="caps">HTML</span> generated by <span class="caps">ASP</span>.NET &#8216;bends the rules&#8217;, so it you are standards junkie, you will be frustrated. On the flip side is that <span class="caps">ASP</span>.NET adapts its output according to the capabilities of the browser.</p>
+
+
+	<h3>What about Mono?</h3>
+
+
+	<p>I see a lot of potential in Mono, but it&#8217;s still got a lot of ground to make up. For now you can forget about compiling your .NET code on Mono and vice versa. Cross platform (different OSes in this case) is possible, but only by using Mono on both <span class="caps">UNIX</span> and MS Windows.</p>
+
+
+	<p>Where I can see it getting a lot of use is powering Web Applications and Web Services. Being able to run your application backend on a <span class="caps">UNIX</span> or MS Windows server will appeal to a lot of current .NET developers. As far as desktop application development is concerned, it&#8217;s not currently going to win many .NET developers over &#8211; in fact I can imagine more Mono developers jumping to .NET once they&#8217;ve got to grips with the concepts.</p>
+
+
+	<h3>Disclaimer (of sorts)</h3>
+
+
+	<p>I&#8217;m currently certified in C#/.NET Web Applications and Web Services and studying for my <a href="http://www.microsoft.com/learning/mcp/mcad/default.asp"><span class="caps">MCAD</span></a> and <a href="http://www.microsoft.com/learning/mcp/mcsd/default.asp"><span class="caps">MCSD</span></a> which I intend to complete before the end of this year.</p>

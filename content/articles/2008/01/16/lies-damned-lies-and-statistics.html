@@ -1,0 +1,190 @@
+--- 
+kind: article
+created_at: 2008-01-16 17:04:00 +00:00
+title: Lies, damned lies, and statistics
+tags: 
+- browser
+- Browsing
+- firefox
+- google analytics
+- konquerer
+- Linux
+- macintosh
+- operating systems
+- safari
+- statistics
+- visitors
+---
+
+<p>Or &#8220;Buh-bye Google Analytics&#8221;.</p>
+
+
+	<p>As most of the commentary on my previous <a href="http://schwuk.com/articles/2008/1/15/target-market">post</a> about some statistics from this site (as reported by Google Analytics), the figures seemed&#8230; wrong.</p>
+
+
+	<p>Even though the Google Analytics code is included on every page I serve, the two obvious causes were:</p>
+
+
+	<ol>
+	<li>People were blocking it (this seems more common than I realised)</li>
+		<li>It&#8217;s broken in some undefinable way</li>
+	</ol>
+
+
+	<p>Seeing as I have full access to my server logs, I decided to go directly to the proverbial horses mouth and see how the numbers work out from there.</p>
+
+
+	<p>The results are interesting to say the least.</p>
+
+
+	<p><em><strong>Note:</strong> These statistics are purely for the same period &#8211; January 2008 up to the date of the this post. This means there may be some discrepancy between the GA figures in my other post and this one.</em></p>
+
+
+	<h4><span class="caps">MPB</span> (Most Popular Browser)</h4>
+
+
+<table>
+<thead>
+<tr>
+<td colspan="3">Google Analytics</td>
+<td colspan="3">Logs</td>
+</tr>
+<tr>
+<td>#</td>
+<td>Browser</td>
+<td>Percentage</td>
+<td>#</td>
+<td>Browser</td>
+<td>Percentage</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.</td>
+<td>Konqueror</td>
+<td>42.55%</td>
+<td>1.</td>
+<td>Firefox</td>
+<td>61.2%</td>
+</tr>
+<tr>
+<td>2.</td>
+<td>Safari</td>
+<td>41.13%</td>
+<td>2.</td>
+<td>MS Internet Explorer</td>
+<td>15.3%</td>
+</tr>
+<tr>
+<td>3.</td>
+<td>Opera</td>
+<td>15.60%</td>
+<td>3.</td>
+<td>Konquerer</td>
+<td>6.7%</td>
+</tr>
+<tr>
+<td>4.</td>
+<td>Firefox</td>
+<td>0.71%</td>
+<td>4.</td>
+<td>Unknown</td>
+<td>4.2%</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>5.</td>
+<td>Safari</td>
+<td>3.6%</td>
+</tr>
+</tbody>
+</table>
+
+	<p>Bit of a difference, isn&#8217;t there?</p>
+
+
+	<h4>Operating Systems</h4>
+
+
+<table>
+<thead>
+<tr>
+<td colspan="3">Google Analytics</td>
+<td colspan="3">Logs</td>
+</tr>
+<tr>
+<td>#</td>
+<td>Browser</td>
+<td>Percentage</td>
+<td>#</td>
+<td>Browser</td>
+<td>Percentage</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.</td>
+<td>Linux</td>
+<td>45.39%</td>
+<td>1.</td>
+<td>Linux</td>
+<td>46.6%</td>
+</tr>
+<tr>
+<td>2.</td>
+<td>Macintosh</td>
+<td>36.88%</td>
+<td>2.</td>
+<td>Windows</td>
+<td>40.6%</td>
+</tr>
+<tr>
+<td>3.</td>
+<td>Windows</td>
+<td>11.35%</td>
+<td>3.</td>
+<td>Macintosh</td>
+<td>6.9%</td>
+</tr>
+<tr>
+<td>4.</td>
+<td>(not set)</td>
+<td>2.84%</td>
+<td>4.</td>
+<td>Unknown</td>
+<td>5.6%</td>
+</tr>
+<tr>
+<td>5.</td>
+<td>iPod</td>
+<td>2.13%</td>
+<td>5.</td>
+<td>Sun Solaris</td>
+<td>&lt;1%</td>
+</tr>
+<tr>
+<td>6.</td>
+<td>iPhone</td>
+<td>1.42%</td>
+<td>6.</td>
+<td>FreeBSD</td>
+<td>&lt;1%</td>
+</tr>
+</tbody>
+</table>
+
+	<p>Hmm. Some confusion there.</p>
+
+
+	<h4>...and the moral of the story is:</h4>
+
+
+	<p>Look before you&#8230;</p>
+
+
+	<p>No, wait, too many cooks&#8230;</p>
+
+
+	<p>That&#8217;s not right. It&#8217;s never work with animals, children, <strong>or</strong> a third party statistics package that relies on JavaScript. <strong>Especially</strong> when you have access to your own logs. So the real moral is <strong>don&#8217;t be lazy</strong>. Here endeth the lesson.</p>

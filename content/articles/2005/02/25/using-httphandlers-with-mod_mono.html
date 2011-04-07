@@ -1,0 +1,119 @@
+--- 
+kind: article
+created_at: 2005-02-25 14:55:00 +00:00
+title: Using HttpHandlers with mod_mono
+tags: 
+- Uncategorized
+---
+
+<p><a href="http://mikeroberts.thoughtworks.net/blog/">Mike Roberts&#8217;</a> post about <a href="http://mikeroberts.thoughtworks.net/blog/archive/Tech/dotNet/GoodbyeWebForms.html">disposing with Web Forms</a> piqued my curiosity about <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpguide/html/cpconHttpHandlers.asp">HttpHandlers</a>. I knew what they were, but I&#8217;d never considered using them over <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/vbcon/html/vbconintroductiontowebforms.asp">Web Forms</a> for standard web pages.</p>
+
+
+	<p>As Mike says, you lose all the power (and complexity) that <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfsystemwebuipageclasstopic.asp">System.Web.UI.Page</a> provides but that could be taken as both a good and/or bad thing.</p>
+
+
+	<p>Not content with just playing with a new feature, I decided to do it on Mono and based on the various instructions I&#8217;ve seen for <span class="caps">ASP</span>.NET/IIS usage of HttpHandlers, they are essentially the same. Speaks volumes for the Mono project.</p>
+
+
+	<p>Here I&#8217;ll explain the steps you should follow to repeat my experiment.</p>
+
+
+	<p>First We&#8217;ll write the handler, then we&#8217;ll configure <span class="caps">ASP</span>.NET to use it, then we&#8217;ll configure Apache to handle it correctly, then finally we&#8217;ll see it in action.</p>
+
+
+	<h3>Step 1 &#8211; Writing the handler</h3>
+
+
+	<p>HttpHandlers are classes that implement the <a href="http://msdn.microsoft.com/library/en-us/cpref/html/frlrfSystemWebIHttpHandlerClassTopic.asp">IHttpHandler</a> or <a href="http://msdn.microsoft.com/library/en-us/cpref/html/frlrfSystemWebIHttpAsyncHandlerClassTopic.asp">IHttpAsyncHandler</a> interfaces. For this exercise we&#8217;re only interested in IHttpHandler, and for that we need to implement the Public <a href="http://msdn.microsoft.com/library/en-us/cpref/html/frlrfsystemwebihttphandlerclassisreusabletopic.asp">IsReusable</a> property (typically <strong>True</strong>) and <a href="http://msdn.microsoft.com/library/en-us/cpref/html/frlrfsystemwebihttphandlerclassprocessrequesttopic.asp">ProcessRequest</a> method.</p>
+
+
+	<p>Here&#8217;s the code for our handler (<code>SimpleHandler.cs</code>):</p>
+
+
+<pre>
+<code>
+ using System;
+ using System.Web;
+
+ public class SimpleHandler : IHttpHandler
+ {
+   public void ProcessRequest(HttpContext Context)
+   {
+     Context.Response.Write("Hello World!");
+   }
+
+   public bool IsReusable
+   {
+     get{ return true; }
+   }
+ }
+</code>
+</pre>
+
+	<p>Simple, eh? Now compile it with:</p>
+
+
+<pre>
+<code>
+ $mcs -t:library SimpleHandler.cs
+</code>
+</pre>
+
+	<p>Copy the resulting file (<code>SimpleHandler.dll</code>) to your <code>bin</code> folder within your web application.</p>
+
+
+	<h3>Configuring <span class="caps">ASP</span>.NET</h3>
+
+
+	<p>We&#8217;ll need to edit our <code>web.config</code> to handle our handler. First step is to decide what sort of pages (<code>.html</code>,<code>.aspx</code> etc.) we&#8217;re going to handle. Since our handler is called <strong>SimpleHandler</strong>, let&#8217;s handle <code>.simple</code> files. Here&#8217;s a complete <code>web.config</code> to handle this.</p>
+
+
+<pre>
+<code>
+ &lt;?xml version="1.0" encoding="utf-8" ?&gt;
+ &lt;configuration&gt;
+         &lt;system.web&gt;
+                 &lt;httpHandlers&gt;
+                         &lt;add verb="*" path="*.simple" type="SimpleHandler,SimpleHandler" /&gt;
+                 &lt;/httpHandlers&gt;
+         &lt;/system.web&gt;
+ &lt;/configuration&gt;
+</code>
+</pre>
+
+	<p>See <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpgenref/html/gngrfhttphandlerssection.asp">here</a> for an explanation of the <code>&amp;lt;httpHandlers&amp;gt;</code> element.</p>
+
+
+	<h3>Configuring Apache</h3>
+
+
+	<p>OK, we&#8217;ve got our handler, and we&#8217;ve configured <span class="caps">ASP</span>.NET to use our handler for pages ending with <code>.simple</code> extension. Now we need to instruct Apache<sup><a href="#fn1">1</a></sup> to use <code>mod_mono</code> for <code>.simple</code> pages. Simply add the following to your Apache configuration file:</p>
+
+
+<pre>
+<code>
+AddHandler mono .simple
+</code>
+</pre>
+
+	<p>Restart Apache, and browse to any <code>.simple</code> page (e.g. <code>http://server/foo.simple</code>). Because of the way we&#8217;ve configured it, any page requested with a <code>.simple</code> extension will be handled by our handler.</p>
+
+
+	<h3>All talk, no action</h3>
+
+
+	<p>Not true at all. Click <a href="/wip/foo.simple">here</a> or <a href="/wip/bar.simple">here</a> to see it in action.</p>
+
+
+	<p>Of course we can do something more impressive than that!</p>
+
+
+	<p>I&#8217;ve set up a second handler &#8211; PageHandler &#8211; which handles <code>.page</code> pages. It uses <a href="http://template.sourceforge.net/">template4dotnet</a> to provide the static content/formatting, and the handler provides the dynamic content. Go <a href="/wip/look.page">look</a>.</p>
+
+
+	<p>I would need to do some performance testing, but I would definitely consider using HttpHandlers (with some form of templating system) for creating sites. There&#8217;s still very much a place for Web Forms, but now I recognise they&#8217;re just one facet of <span class="caps">ASP</span>.NET.</p>
+
+
+<hr />
+
+	<p id="fn1"><sup>1</sup> Although <span class="caps">IIS</span> has a different way of doing it, you&#8217;re still performing the same action &#8211; instructing the web server to use a specific program to process specific page types.</p>

@@ -1,0 +1,30 @@
+--- 
+kind: article
+created_at: 2004-10-22 05:36:20 +01:00
+title: User unfriendly
+tags: 
+- Uncategorized
+---
+
+<p>Why does Linux have to make things so damn difficult?</p>
+
+
+	<p>I wanted to modify some invites (bought, not home made) for my kids forthcoming firework party by printing some text and a map on the back.</p>
+
+
+	<p>Straightforward enough: get a map, layout the text etc. Made reasonably short work of this using the <a href="http://www.gimp.org/"><span class="caps">GIMP</span></a> although I still work quicker in <a href="http://www.adobe.com/products/photoshop/main.html">Photoshop</a> simply because of more experience with it.</p>
+
+
+	<p>Then came the printing, which turned into an absolute nightmare! I run <a href="http://fedora.redhat.com/">Fedora Core 2</a> which uses <a href="http://www.cups.org/"><span class="caps">CUPS</span></a> for printing which supports my <a href="http://www.epson.com/cgi-bin/Store/ProductQuickSpec.jsp?oid=176022"><span class="caps">EPSON</span> Stylus Photo 890</a> well or at least claims to. The printer prints test pages OK, although I occasionally have to remove and re-add the printer queue.  <a href="http://linuxcommand.org/man_pages/escputil1.html">escputil</a> (part of the <a href="http://gimp-print.sourceforge.net/">Gimp-Print</a> package) works <em>after</em> I print something &#8211; never before. The trouble came when trying to print a non-standard size image onto a non-standard size paper. First of all the <span class="caps">GIMP</span> print dialog defaults to sending postscript which the printer didn&#8217;t understand. Secondly it would not accept my custom paper size no matter what I did. Thirdly it insisted on adding margins all over the place. Fourthly when I did manage to print something, it would lock open the <span class="caps">USB</span> port so I couldn&#8217;t print anything else!</p>
+
+
+	<p>The solution? Reboot into Windows XP, quickly re-create the layout in Photoshop CS, add a custom paper size to my printer (which it remembered!) and print. Job done.</p>
+
+
+	<p>Linux took me two hours and didn&#8217;t work. XP took me less than half an hour (including printing 40 invites) and did.</p>
+
+
+	<p>XP and the <span class="caps">EPSON</span> configuration utility didn&#8217;t do it all automatically &#8211; I still floundered a bit adding a custom paper size &#8211; but it was a damn site more intuitive.</p>
+
+
+	<p>If this were a <a href="http://slashdot.org/">/.</a> post, amongst the flames would be comments like: &#8220;it works for me&#8221;, &#8220;use a xyz distro&#8221;,  or &#8220;you&#8217;re just not used to Linux&#8221;. I&#8217;ve been using Linux daily for <em>years</em> now, I shouldn&#8217;t have to change my distro to get things to work (although I have ordered my <a href="http://www.ubuntulinux.org/">Ubuntu</a> CD), and people like <a href="http://www.catb.org/~esr/">Eric S. Raymond</a> have <a href="http://www.catb.org/~esr/writings/cups-horror.html">problems with Linux printing</a> so I&#8217;m not alone in this &#8211; it shouldn&#8217;t be this damn hard!</p>

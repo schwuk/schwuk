@@ -1,0 +1,27 @@
+--- 
+kind: article
+created_at: 2006-03-21 13:31:00 +00:00
+title: Content Filtering with IPCop & squidGuard
+tags: 
+- Uncategorized
+---
+
+<p>So the day has finally come&#8230; my daughter now has her own computer, and a connection to my wireless network.</p>
+
+
+	<p>My immediate thoughts went to shielding here from the, er, dark side of the internet so it was time to improve my router.</p>
+
+
+	<p>I&#8217;ve been running an <a href="http://ipcop.org/">IPCop</a> box for over a year now, and I have nothing but praise for it. I knew it had <a href="http://www.squid-cache.org/">Squid</a> built-in, but I&#8217;d never played with it. My first port of call was to enable both the proxy and <a href="http://en.wikipedia.org/wiki/Proxy_server#Proxy_transparency">transparent proxying</a> so that it could not be circumvented. This worked nicely, so it was onto the next step &#8211; filtering.</p>
+
+
+	<p>A quick google (and a chat with the #lugradio crew) pointed me at <a href="http://www.squidguard.org/">squidGuard</a> which I promptly downloaded and installed. I few ticks in the right boxes, and all traffic to non-whitelisted sites is blocked excellent.</p>
+
+
+	<p>It took me a couple of attempts to get the filtering working the way I wanted. The trick was to add the &#8220;approved&#8221; sites to the whitelist, then remove all entries from the &#8220;Allowed&#8221; field. This forced all machines not listed in the &#8220;Privileged&#8221; or &#8220;Banned&#8221; fields to use the default <span class="caps">ACL</span> which blocks traffic. There&#8217;s no way to tell squidGuard (via IPCop) to block undefined traffic for entries in the &#8220;Allowed&#8221; field.</p>
+
+
+	<p>Sounds too good be true? It is. This was all acheived on my second attempt on a fresh machine &#8211; enabling Squid on my original machine did nothing, and when I enabled squidGuard the whole box ground to a halt (and when traffic did get through it wasn&#8217;t filtered) so I did a fresh install of IPCop on a slightly beefier machine and all was good.</p>
+
+
+	<p>Next up&#8230; getting QoS working so my VoIP traffic gets priority.</p>

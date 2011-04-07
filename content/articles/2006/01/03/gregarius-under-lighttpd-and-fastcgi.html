@@ -1,0 +1,69 @@
+--- 
+kind: article
+created_at: 2006-01-03 14:58:00 +00:00
+title: Gregarius under LightTPD and FastCGI
+tags: 
+- Uncategorized
+---
+
+<p>Not one to hang around, I decided to give <a href="http://gregarius.net/">Gregarius</a> a whirl instead of just <a href="http://schwuk.com/articles/2006/01/03/empowerment">talking about it</a>. You can find it at <a href="http://lakelandedge.co.uk/rss/">http://lakelandedge.co.uk/rss/</a>.</p>
+
+
+	<p>Install was pretty simple as expected, but there were a few gotchas specific to my (and possibly others) configuration as I&#8217;m <a href="http://schwuk.com/articles/2005/08/14/so-i-lied">running</a> LightTPD with FastCGI, so I&#8217;ll cover them here:</p>
+
+
+	<ul>
+	<li>It thinks it&#8217;s running in the root of your site no matter where it is installed. This is caused by <span class="caps">PHP</span>_SELF being empty, for which a solution can be found <a href="http://forum.lighttpd.net/topic/67">here</a></li>
+		<li>It use Apache&#8217;s mod_rewrite by default  (an understandable, but unfortunate assumption on the developers part)</li>
+	</ul>
+
+
+	<p>To save solving these yourself, here are some tailored instructions&#8230;</p>
+
+
+	<h3>Tailored Install Instructions</h3>
+
+
+	<ol>
+	<li>Follow the standard install <a href="http://wiki.gregarius.net/index.php/Installation">instructions</a> (which recursively links to this post!), but don&#8217;t go anywhere near your browser yet!</li>
+		<li>Modify your <code>php.ini</code>, so that <code>cgi.fix_pathinfo</code> is <code>1</code></li>
+		<li>Now you can browse to you installation</li>
+		<li>Before proceeding any further, go to the http://example.com/rss/admin/index.php?domain=config (changing the domain &#38; path to suit obviously) and toggle <code>rss.output.usemodrewrite</code> to <code>off</code></li>
+		<li>Start using it!</li>
+	</ol>
+
+
+	<p>At some point, I may figure out the conversion of the rewrite rules to suit lighttpd, but at the moment I&#8217;m not to bothered as I prefer the un-rewritten URLs.</p>
+
+
+	<h3>robots.txt</h3>
+
+
+	<p>I prefered not to have my installation indexed (whilst googling for tips, I encountered lots of links pointing to feeds within Gregarius installations &#8211; very annoying), so I modified my <code>robots.txt</code> <a href="http://www.robotstxt.org/wc/exclusion-admin.html">accordingly</a>.</p>
+
+
+	<h3>Authentication</h3>
+
+
+	<p>I went with htdigest protection, but I sure you can figure out how to use basic.</p>
+
+
+<ol>
+<li>Create a disgest file &#8211; I used <code>htdigest</code> from my previous Apache installation</li>
+<li>Add the following lines to your <code>lighttpd.conf</code> (in the relevant domain section if you&#8217;re hosting multiple sites:
+<pre>
+</code>
+auth.backend = &#8220;htdigest&#8221;
+auth.backend.htdigest.userfile = &#8221;/path/to/digest_file&#8221;
+auth.require = ( &#8221;/rss/admin/&#8221; =&gt;
+                 (
+                   &#8220;method&#8221;  =&gt; &#8220;digest&#8221;,
+                   &#8220;realm&#8221;   =&gt; &#8220;Gregarius&#8221;,
+                   &#8220;require&#8221; =&gt; &#8220;valid-user&#8221;
+                 )
+               )
+</code>
+</pre>
+</li>
+<li>Reload lighttpd and check everything is as expected.</li>
+</ol>

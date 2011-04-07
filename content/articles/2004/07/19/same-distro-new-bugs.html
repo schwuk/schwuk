@@ -1,0 +1,50 @@
+--- 
+kind: article
+created_at: 2004-07-19 13:06:56 +01:00
+title: Same distro, new bugs...
+tags: 
+- Uncategorized
+---
+
+<p>...or maybe that should be &#8216;new distro, same bugs&#8217;?</p>
+
+
+	<p>Swapped <a href="http://fedora.redhat.com">Fedora Core</a> 1 for 2 this weekend.</p>
+
+
+	<p>Same install procedure &#8211; although my old routine of copying the CDs to my server and installing over <span class="caps">HTTP</span> doesn&#8217;t work because there aren&#8217;t any boot disk images any more &#8211; so no great surprises. My standard install recipe consists of:</p>
+
+
+	<ol>
+	<li>Install</li>
+		<li>Boot</li>
+		<li>Disable Kudzu so my 3C905TX works :(</li>
+		<li>Reboot into run level 3</li>
+		<li>Edit <code>/etc/yum.conf</code> for my local repositories</li>
+		<li><code>yum -y update</code></li>
+		<li>Reboot into run level 3 again</li>
+		<li>Install the latest <span class="caps">NVIDIA</span> <a href="http://www.nvidia.com/linux">drivers</a></li>
+		<li>Reboot into run level 5</li>
+		<li>Install <a href="http://tettnang.freshrpms.net/rpm.html?id=19">apt</a> from <a href="http://freshrpms.net/">freshrpms.net</a></li>
+		<li><code>apt-get install synaptic</code></li>
+		<li>Edit <code>/etc/fstab</code> for my various <a href="http://nfs.sourceforge.net/"><span class="caps">NFS</span></a> mounts</li>
+		<li>Install the various mp3 codecs and plugins for <a href="http://www.xmms.org/"><span class="caps">XMMS</span></a> and <a href="http://www.gstreamer.net/">GStreamer</a></li>
+		<li>Install <a href="http://www.mozilla.org/products/firefox">Firefox</a> + extensions</li>
+	</ol>
+
+
+	<p>With that all done, there&#8217;s nothing exceptionally new and shiny about <span class="caps">FC2</span> (apart from the fact that it&#8217;s new and shiny). It&#8217;s a bit faster (though not that noticeable on my classic Athlon 800MHz), and it&#8217;s got newer packages. Haven&#8217;t really got a strong opinion either way at the moment on the <a href="http://www.bytebot.net/geekdocs/spatial-nautilus.html">spatial nautilus</a> thing &#8211; it works, and I&#8217;m happy with it.</p>
+
+
+	<p>As mentioned above, support for floppy boot disks has now gone, so my old <span class="caps">HTTP</span> installation routine no longer works. Instead they provide a bootable CD-ROM image and some <span class="caps">PXE</span> instructions that I&#8217;ve not looked into yet. I think <span class="caps">PXE</span> + <a href="http://www.rom-o-matic.net/">rom-o-matic</a> will be my new solution. I may have to invest some effort in <a href="http://www.redhat.com/docs/manuals/linux/RHL-9-Manual/custom-guide/ch-kickstart2.html">Kickstart</a> as well.</p>
+
+
+	<p>Of course there&#8217;s now another step added to my standard install: <a href="http://www.mono-project.com">Mono</a>, on which note:</p>
+
+
+<txp:image id="1" />
+
+	<p>My first Mono application  &#8211; Hello World! &#8211; original, huh? This isn&#8217;t your typical hello world demo app though &#8211; it&#8217;s running  against a <a href="http://www.php.net/"><span class="caps">PHP</span></a> / <a href="http://sourceforge.net/projects/nusoap/">NuSOAP</a> based web service that I wrote and consumed.</p>
+
+
+	<p>I&#8217;ll save my commentary on Mono for another post &#8211; I&#8217;ll let you have one comment for now though: bags of potential&#8230;</p>

@@ -1,0 +1,36 @@
+--- 
+kind: article
+created_at: 2005-08-23 00:50:00 +01:00
+title: In your face, Gmail!
+tags: 
+- Uncategorized
+---
+
+<p>Back when <a href="http://mail.google.com/">Gmail</a> was first launched I was like &#8220;big deal&#8221;. 1GB storage? I&#8217;ve got my own server. Filters? I can run procmail (because I&#8217;ve got my own server). Webmail? I can run my own (because I&#8217;ve got my own server).</p>
+
+
+	<p>I used to have a fantastic email setup with postfix handling <span class="caps">SMTP</span>, spamassassin and ClamAV handling spam and viruses respectively, procmail for filtering, dovecot for <span class="caps">IMAP</span> and various clients (including Squirrelmail).</p>
+
+
+	<p>Then I <em>upgraded</em> from Fedora Core 1 to Debian Sarge (just before it became stable), and everything broke. Sure postfix still worked, spamassassin and ClamAV still scanned (although the former was never as good as it was) but procmail was broken horribly, and I used this extensively to filter my various mailing lists and to file spam for later inspection. When I couldn&#8217;t immediately fix this, I switched to using Gmail for mailing lists (and some personal email), and struggled on with my reduced functionality setup.</p>
+
+
+	<p>You see the problem was, when anything was run through procmail, it was stored with the owner &#38; group as <code>root:mail</code> which meant the it was unreadable by me. For the life of me I couldn&#8217;t figure out what was causing this. After extensive Googling and enlisting the help of various people (of which <a href="http://uffish.net">Mike Knell</a> &#8211; my brother-in-laws brother &#8211; was extremely helpful) I was still drawing a blank.</p>
+
+
+	<p>Tonight I fixed the problem though:</p>
+
+
+	<blockquote>
+		<p>If no rcfiles and no -p have been specified on the command line, procmail will, prior to reading $HOME/.procmailrc, interpret commands from /etc/procmailrc (if present). Care must be taken when creating /etc/procmailrc, because, if circumstances permit, it will be executed with root privileges (contrary to the $HOME/.procmailrc file of course).</p>
+	</blockquote>
+
+
+	<p>You see the problem was that I was using Maildir with procmail, and I was using a global procmailrc to configure this, and that&#8217;s where the permissions were coming from. Once I figured out the correct incantation to force procmail to use Maildir I was laughing:</p>
+
+
+<pre>
+mailbox_command = /usr/bin/procmail -a "$EXTENSION" DEFAULT=$HOME/Maildir/ MAILDIR=$HOME/Maildir
+</pre>
+
+	<p>I do like Gmail and <em>may</em> continue to use it for mailing lists, but now my mail configuration is back up to full strength (and my spam is neatly handled) I suddenly feel less need for it.</p>

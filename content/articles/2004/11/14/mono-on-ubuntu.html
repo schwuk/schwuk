@@ -1,0 +1,38 @@
+--- 
+kind: article
+created_at: 2004-11-14 07:01:00 +00:00
+title: Mono on Ubuntu
+tags: 
+- Uncategorized
+---
+
+<p>Spent a little while figuring out the correct incantation to get <a href="http://www.mono-project.com/">Mono</a> installed on <a href="http://www.ubuntulinux.org/">Ubuntu</a> so I thought I&#8217;d post it as a reminder for myself (and possibly as an instruction for others).</p>
+
+
+	<p><strong>Step 1.</strong></p>
+
+
+	<p>Enable the <em>universe</em> repository (see <a href="http://ubuntuforums.org/showthread.php?t=179">here</a> for instructions if you&#8217;re really not sure how to do that).</p>
+
+
+	<p><strong>Step 2.</strong></p>
+
+
+	<p>Do the following from a terminal:</p>
+
+
+<pre>
+ $ sudo apt-get install mono monodoc libgnome-cil
+</pre>
+
+	<p><ins>Updated</ins>
+It turns out <code>libgtk-cil</code> doesn&#8217;t provide all the dependencies you need to run <code>monodoc</code> (and possibly other applications) &#8211; using <code>libgnome-cil</code> does provide them.</p>
+
+
+	<p><em><strong>NB:</strong> This is based on the Debian install instructions in <a href="http://www.amazon.co.uk/exec/obidos/ASIN/0596007922">Mono: A Developers Notebook</a> but the gtk-sharp package has been renamed (this will also apply to Debian unstable).</em></p>
+
+
+	<p><strong>Step 3.</strong></p>
+
+
+	<p>There is no step 3. Don&#8217;t you just love <code>apt-get</code>?</p>

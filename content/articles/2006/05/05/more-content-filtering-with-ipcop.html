@@ -1,0 +1,21 @@
+--- 
+kind: article
+created_at: 2006-05-05 12:52:00 +01:00
+title: (More) Content Filtering with IPCop
+tags: 
+- Uncategorized
+---
+
+<p>(Quite) a while ago I talked about the <a href="http://schwuk.com/articles/2006/03/21/content-filtering-with-ipcop-squidguard">content filtering</a> setup I&#8217;d implemented on my <a href="http://ipcop.org">IPCop</a> box to keep my kids safe when browsing the web.</p>
+
+
+	<p>All was well until a week ago when I split my network into wired and wireless (<span style="color: green;">Green</span> and <span style="color: blue;">Blue</span> in IPCop speak). The separation worked as it should, but whenever I turned  <a href="http://www.squidguard.org/">squidGuard</a> on no web traffic would flow.</p>
+
+
+	<p>I went looking for a solution (because re-installing the add-on didn&#8217;t work) and instead found an alternative: <a href="http://www.urlfilter.net/">urlfilter</a> (which incidentally also supports <a href="http://www.smoothwall.org/">SmoothWall</a> for those that use it). urlfilter requires <a href="http://www.advproxy.net/">advproxy</a> &#8211; an advanced proxy add-on (again also available for SmoothWall) &#8211; to function, but a quick look at the features convinced me it was worth a try so I installed them both.</p>
+
+
+	<p>They both do exactly what they say they do, and they&#8217;ve given me more control and flexibility than my previous setup. More importantly content filtering is working again, and this time it was easier &#8211; there&#8217;s an option to block all non-listed sites.</p>
+
+
+	<p>So I would highly recommend both to anyone using IPCop (or Smoothwall).</p>

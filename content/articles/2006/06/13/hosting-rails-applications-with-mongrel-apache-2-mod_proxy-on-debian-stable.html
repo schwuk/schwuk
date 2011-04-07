@@ -1,0 +1,74 @@
+--- 
+kind: article
+created_at: 2006-06-13 17:07:49 +01:00
+title: Hosting Rails applications with mongrel , Apache 2 & mod_proxy on Debian Stable
+tags: 
+- apache
+- lighttpd
+- mod_proxy
+- mongrel
+- rubyonrails
+- Uncategorized
+---
+
+<p>About ten months ago I <a href="http://schwuk.com/articles/2005/08/14/so-i-lied">switched</a> from Apache 2 to <a href="http://www.lighttpd.net/">`lighttpd`</a> for hosting this site. This was back in the day when the only real way to run your rails app was through FastCGI.</p>
+
+
+	<p>Times change and now all the cool kids are using <a href="http://mongrel.rubyforge.org/">Mongrel</a> or clusters thereof. I tried to get Mongrel running with Lighty, but I gave up for two reasons:</p>
+
+
+	<p>1. The maintainer of Mongrel <a href="http://mongrel.rubyforge.org/docs/lighttpd.html">recommends</a> not to use lighttpd because of issues
+2. Whilst ignoring him and pressing on regardless my Lighty install fubar&#8217;d and I couldn&#8217;t recover it. It just wouldn&#8217;t serve any content anymore &#8211; dynamic <b>or</b> static</p>
+
+
+	<p>So I decided to swtich back to Apache 2. There are various <a href="http://blog.innerewut.de/articles/2006/04/21/scaling-rails-with-apache-2-2-mod_proxy_balancer-and-mongrel">guides</a> around for hosting mongrel behind a load balancer behind Apache 2.2, but the load balancer isn&#8217;t available for Apache 2.0 and there&#8217;s little documentation for alternatives. Balancing would be nice, but it&#8217;s not my main objective here so I did some more digging and concluded that <a href="http://httpd.apache.org/docs/2.0/mod/mod_proxy.html">`mod_proxy`</a> would meet my needs.</p>
+
+            <!--more-->
+
+            <p>First of all I got Mongrel running and made sure it worked:</p>
+
+
+	<pre><code>$ cd typo
+$ mongrel_rails start -d -e production</code></pre>
+
+
+	<p>Enabling `mod_proxy` is simple enough:</p>
+
+
+	<pre><code>$ a2enmod proxy</code></pre>
+
+
+	<p>Now I&#8217;m using <a href="http://httpd.apache.org/docs/2.0/vhosts/name-based.html">name based virtual hosting</a> on my server, so for the domain (this one) I wanted to reverse proxy to mongrel I added the following to the relevant file in `/etc/apache2/sites-available/`:</p>
+
+
+	<pre><code>ProxyPass / http://localhost:3000/
+ProxyPassReverse / http://localhost:3000/</code></pre>
+
+
+	<p>Fired up my browser, pointed it to http://schwuk.com and&#8230; it didn&#8217;t work.</p>
+
+
+	<p>I kept getting 403 errors, but I just couldn&#8217;t figure out why. After a bit more googling I <a href="http://www.wlug.org.nz/ApacheReverseProxy#hdr_i_get_client_denied_by_server_configuration_proxy_http_site_errors">found</a> the solution. Change your `/etc/apache2/mods-available/proxy.conf` from:</p>
+
+
+<proxy *>
+  Order deny,allow
+  Deny from all
+  #Allow from .your_domain.com
+</proxy>
+
+	<p>To:</p>
+
+
+<proxy *>
+  Order deny,allow
+  Allow from all
+</proxy>
+
+	<p>Cap it all off with a:</p>
+
+
+	<pre><code>$ /etc/init.d/apache2 force-reload</code></pre>
+
+
+	<p>...and you should be good to go!</p>

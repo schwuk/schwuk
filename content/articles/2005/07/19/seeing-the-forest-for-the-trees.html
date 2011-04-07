@@ -1,0 +1,46 @@
+--- 
+kind: article
+created_at: 2005-07-19 01:11:16 +01:00
+title: Seeing the forest for the trees
+tags: 
+- Uncategorized
+---
+
+<p>I&#8217;ve posted about <a href="/entries/104">Ruby on Rails</a> before, although it just isn&#8217;t a good fit for me at the moment I still keep an eye on it.</p>
+
+
+	<p>Today I saw a post asking <a href="http://www.loudthinking.com/arc/000486.html">is anyone using the dynamic alternatives to .NET?</a> (from one of the creators of RoR) which incorporated quotes and comments about how bad and slow developing with .NET is compared to RoR.</p>
+
+
+	<p>All I can say is that they must have been <strong>bad</strong> .NET developers.</p>
+
+
+	<p>From <a href="http://groups-beta.google.com/group/comp.lang.ruby/msg/47655971c922b9e4">Christian Romney</a>:</p>
+
+
+	<blockquote>
+		<p>ActiveRecord is responsible for the great majority of the productivity on the Rails platform. If I never have to create another SqlConnection, SqlCommand, or SqlParameter object again, it will be too soon. Yes, I have rolled my own Data Access layer, but for goodness sakes, how many DALs have I built in the Windows world in the last 10 years?!</p>
+	</blockquote>
+
+
+	<p>If he has written that many DALs, then why hasn&#8217;t he picked up the tricks of the trade? Code generation is the key here. When I&#8217;m writing a <span class="caps">DAL</span>, all the database related code is written by <a href="http://www.codesmithtools.com/">CodeSmith</a> for me. More recently I&#8217;ve taken to using <a href="http://www.db4o.com/">db4o</a> &#8211; an object-oriented database that allows me to focus on logic instead of storage. Either of these remove a large chunk of the <span class="caps">DAL</span> headache.</p>
+
+
+	<h3>Realisation</h3>
+
+
+	<p>Proofreading this entry made me realise something I&#8217;ve never fully considered before &#8211; technically I&#8217;m the <strong>bad</strong> .NET developer, not those RoR converts.</p>
+
+
+	<p>Why?</p>
+
+
+	<p>Because I don&#8217;t do thing the &#8220;official&#8221; Microsoft way. I use the power and flexibility of .NET to get things done my way. I use the <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnpag2/html/daab.asp">Data Access Application Block</a> to virtually eliminate my database code instead of using SqlConnections et al. I use <a href="/entries/78">HttpHandlers</a> instead of Web.Forms. I use additional components like <a href="http://ajax.schwarz-interactive.de/csharpsample/default.aspx">Ajax.NET</a>, db4o, log4net and others to enhance my applications. None of these are the &#8220;standard&#8221; way of doing things, but they&#8217;re the main reason I like coding with .NET (and Mono). If I couldn&#8217;t do this, then I would probably be as hacked off with .NET as others seem to be.</p>
+
+
+	<p>I guess originally learning to program in Perl taught me the most valuable lesson of all:</p>
+
+
+	<blockquote>
+		<p>There&#8217;s more than one way to it.</p>
+	</blockquote>

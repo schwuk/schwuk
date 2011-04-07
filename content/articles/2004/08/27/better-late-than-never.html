@@ -1,0 +1,95 @@
+--- 
+kind: article
+created_at: 2004-08-27 07:14:00 +01:00
+title: Better late than never!
+tags: 
+- Uncategorized
+---
+
+<p>The title applies to more than one topic&#8230;</p>
+
+
+	<h3>.NET Rocks!</h3>
+
+
+	<p>I&#8217;ve finally gotten round to catching up on last few<sup><a href="#fn1">1</a></sup> <a href="http://www.franklins.net/dotnetrocks/">.NET Rocks!</a> shows<sup><a href="#fn2">2</a></sup>, having missed a bunch due to holidays/lack of bandwidth. They make a great show, but at 70-100MB per show<sup><a href="#fn3">3</a></sup>... Ow!</p>
+
+
+	<p>.NET Rocks is really good show, and they seem to have a lot of fun doing it. I recommend it to all .NET developers.</p>
+
+
+	<h3>Visual C# 2005 Express</h3>
+
+
+	<p>Listening to show <a href="http://www.franklins.net/fnetdotnetrocks/dotnetrocks.aspx?showid=71">#70</a> prompted me to finally try out the <a href="http://labs.msdn.microsoft.com/express/">Visual Studio 2005 Express betas</a> &#8211; in particular <a href="http://lab.msdn.microsoft.com/express/vcsharp/default.aspx">Visual C# 2005 Express Edition Beta</a>.</p>
+
+
+	<p>In a nutshell, it confirms my belief that currently <a href="http://www.mono-project.com/">Mono</a> will convert more people to .NET than to away from it because the developer tools (to a certain extent) make the language.</p>
+
+
+	<h3>A brief digression&#8230;</h3>
+
+
+	<p>I believe that &#8220;Visual Studio&#8221; is one of the best IDEs out there, and even in it its cut down &#8216;Express&#8217; form blows the competition away. Of course I might feel differently if I had to pay for it instead of my employer, but if I was self-employed (again) I would probably still put my hand in my pocket for it. Can you give a higher recommendation?</p>
+
+
+	<p>I think the Express products are a really good idea, and as long as Microsoft get the price right, they could net (pun intended) a lot of &#8216;non-professional&#8217; developers. Of course there is always <a href="http://www.icsharpcode.net/OpenSource/SD/">SharpDevelop</a> for the independent .NET developer, and it is an excellent achievement but it requires a more intimate knowledge of .NET and the <span class="caps">SDK</span> to get the most out of it.</p>
+
+
+	<p>Anyway, back on topic&#8230;</p>
+
+
+	<h3>Caveat Installer</h3>
+
+
+	<p>Installation is a big gotcha &#8211; do people not realise that not everyone has broadband yet? The initial download for C# Express is 2.34MB. Once you kick off the install, it wants to download a futher 28MB of C# Express and 24MB of .NET Framework 2.0 Beta, and also offers to download 36MB of <span class="caps">SQL</span> Server 2005 Express and 162MB of <span class="caps">MSDN</span> Documentation. Try doing that on <span class="caps">ISDN</span>!</p>
+
+
+	<p>I cheated though&#8230;  I&#8217;d already read the <a href="http://lab.msdn.microsoft.com/express/vcsharp/vcsharpmaninstall/default.aspx">manual install instructions</a> and downloaded the following:</p>
+
+
+	<ul>
+	<li><a href="http://download.microsoft.com/download/2/d/9/2d96a8eb-a612-46ad-b4ed-6497a8e1f245/dotnetfx.exe">.NET Framework 2.0 Beta</a> &#8211; 25MB</li>
+		<li><a href="http://download.microsoft.com/download/d/5/f/d5fbf037-59b9-4906-b20b-de5dd544de12/msdnixp.exe"><span class="caps">MSDN</span> Express Library 2005 Beta</a> &#8211; 162MB</li>
+		<li><a href="http://download.microsoft.com/download/0/d/8/0d8bbf1c-6fd8-49dd-81bf-b8d149634bca/SQLEXPR.EXE"><span class="caps">SQL</span> Server 2005 Express Edition Beta</a> &#8211; 36MB</li>
+	</ul>
+
+
+	<p>...via broadband. I&#8217;d missed the <a href="http://download.microsoft.com/download/8/c/7/8c784f26-8e95-43b9-90b9-56b511220dfb/vcssetup.exe">full install</a> (30MB) of the Visual C# though&#8230; D&#8217;oh!</p>
+
+
+	<p>I&#8217;ll certainly be doing it for the <a href="http://download.microsoft.com/download/6/e/1/6e1e9b98-928c-45f0-b44b-39f205090446/vwdsetup.exe">Visual Web Developer 2005 Express</a>  as 42MB (via web installer &#8211; 44MB for full download) is maybe a bit too much for <span class="caps">ISDN</span>. Then again, I&#8217;ve downloaded bigger&#8230;</p>
+
+
+	<h3>Initial impressions</h3>
+
+
+	<p>So far I&#8217;ve not dived into it too deeply, but the surface enhancements seem well thought out. My favourite so far has to be the &#8216;hints&#8217; the form designer gives you when laying out controls on Windows Forms. Makes things far easier&#8230;</p>
+
+
+	<h3>Hello World!</h3>
+
+
+	<p>For my regular readers (and I do have a few!) who remember my first <a href="http://schwuk.com/entries/8/same-distro-new-bugs">Mono app</a>, here&#8217;s its .NET 2.0 counterpart:</p>
+
+
+<txp:image id="4" />
+
+	<p>Nothing earth shattering of course, and very simple to code. Again using my <a href="http://www.php.net/"><span class="caps">PHP</span></a> / <a href="http://sourceforge.net/projects/nusoap/">NuSOAP</a> based <span class="caps">WSDL</span> enabled &#8216;Hello&#8217; web service<sup><a href="#fn4">4</a></sup> to test interoperability and web service consumption.</p>
+
+
+	<p>Visual C# Express (and of course Visual Studio) make consuming web services far easier than <a href="http://www.monodevelop.org/">MonoDevelop</a> or  <a href="http://www.icsharpcode.net/OpenSource/SD/">SharpDevelop</a> both of which require you to use the .NET <span class="caps">SDK</span> tool <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cptools/html/cpgrfWebServicesDescriptionLanguageToolWsdlexe.asp">wsdl.exe</a> which generates the proxy class for you. Of course some (including me) may say that the wsdl tool gives you more control over your web service consumption (e.g. multiple proxies within the same namespace) but from a user-friendliness point-of-view, the &#8216;Visual&#8217; products win hands down.</p>
+
+
+<hr />
+
+	<p id="fn1"><sup>1</sup> Actually eight&#8230; Oops&#8230;</p>
+
+
+	<p id="fn2"><sup>2</sup> Now added to my &#8216;External&#8217; links in the right hand side bar.</p>
+
+
+	<p id="fn3"><sup>3</sup> I&#8217;ve just noticed that on the last few shows they&#8217;ve been offering low quality versions (Windows Media only though) at ~20MB &#8211; much better! They always offered a streaming version (again Windows Media only) though, but my limited bandwidth is too precious&#8230; :) So every so often I hijack various friends <span class="caps">ADSL</span> lines and grab a few to listen to at my leisure.</p>
+
+
+	<p id="fn4"><sup>4</sup> Which I <em>will</em> publish one of these days&#8230;</p>

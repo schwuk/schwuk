@@ -1,0 +1,30 @@
+--- 
+kind: article
+created_at: 2005-04-08 14:30:52 +01:00
+title: Compiling MPlayer on Ubuntu Hoary
+tags: 
+- Uncategorized
+---
+
+<p>After discovering the Ubuntu MPlayer package is <a href="http://www.ubuntuforums.org/showpost.php?p=5340&#38;postcount=2">broken for non-P4 systems</a>, I decided to compile from source. I followed <a href="http://www.macewan.org/index.php?m=20050201">MacEwan&#8217;s instructions</a>, but I was getting a strange compile error&#8230;</p>
+
+
+<pre>
+ /usr/lib/libGL.a(glxcmds.o)(.text+0x2eea): In function
+ `glXGetMscRateOML':
+ : undefined reference to `XF86VidModeQueryVersion'
+ /usr/lib/libGL.a(glxcmds.o)(.text+0x2f1a): In function
+ `glXGetMscRateOML':
+ : undefined reference to `XF86VidModeGetModeLine'
+ collect2: ld returned 1 exit status
+ make: *** [mplayer] Error 1
+</pre>
+
+	<p>Turns out there&#8217;s a package missing:</p>
+
+
+<pre>
+ $ sudo apt-get install libxxf86vm-dev
+</pre>
+
+	<p>And everything compiles cleanly now!</p>

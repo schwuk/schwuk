@@ -1,0 +1,24 @@
+--- 
+kind: article
+created_at: 2005-05-18 10:32:12 +01:00
+title: app.config files for DLLs
+tags: 
+- Uncategorized
+---
+
+<p>In one of my work projects I&#8217;ve made heavy use of unit tests, and in particular the integration of <a href="http://www.testdriven.net">TestDriven.NET</a> and Visual Studio .NET.</p>
+
+
+	<p>I keep all my tests in a separate assembly, but I need to make use of varying connections strings. The most obvious solution was to use an configuration key in an app.config file attached to the test project, <strong>but</strong> the projects was set to output a library (DLL), and VS.NET <strong>doesn&#8217;t</strong> automatically handle app.config files for libraries.</p>
+
+
+	<p>Now I could just create the file in my output directory and have it work, but a) that&#8217;s not very neat and b) being the good <acronym title="Source Code Management">SCM</acronym> user I am I <strong>don&#8217;t</strong> store build artifacts in subversion.</p>
+
+
+	<p>After a bit of a google, the most obvious <a href="http://weblogs.asp.net/nunitaddin/archive/2004/05/26/142228.aspx#153550">solution</a> was to use a <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dv_vjsharp/html/vjtskbuildeventscommonpropertiesprojectnamepropertypagesdialogbox.asp">Post-build Event</a> to copy and rename the file for me like VS.NET should.</p>
+
+
+Here&#8217;s my variation of the solution:
+<pre>
+copy "$(ProjectDir)app.config" "$(TargetDir)$(TargetFileName).config"
+</pre>

@@ -1,0 +1,55 @@
+--- 
+kind: article
+created_at: 2004-09-24 10:31:00 +01:00
+title: New Mono
+tags: 
+- Uncategorized
+---
+
+<p><a href="http://www.go-mono.com/archive/1.0.2/">Mono 1.0.2</a> has been released<sup><a href="#fn1">1</a></sup>. Descriptions of the changes are noticably lacking, but the biggy for me is that there is now a package for mod_mono provided. Lack of this has put me off playing with Mono&#8217;s implementation of <span class="caps">ASP</span>.NET, but now&#8230;</p>
+
+
+	<p><em>One quick upgrade later&#8230;</em></p>
+
+
+	<p>Copied an <span class="caps">ASP</span>.NET app off my <span class="caps">IIS</span> box, and although I had to play with a few paths to get it working correctly it worked! :) Sort of. :( The application itself worked, but it appears that some of the backend logic fails&#8230;</p>
+
+
+	<p>Still, it&#8217;s promising, and now I can seriously look at developing sites on Linux on Mono. Cool.</p>
+
+
+	<h3>Multiple applications with mod_mono</h3>
+
+
+	<p>I didn&#8217;t twig this straight away (I didn&#8217;t read the docs, just the examples), but if you want to host multiple mod_mono applications you need to separate them with a comma in your <code>MonoApplications</code> directive.</p>
+
+
+	<p>E.g.</p>
+
+
+<pre>
+ Alias /app1 "/path/to/app1"
+ Alias /app2 "/path/to/app2"
+
+ MonoApplications "/app1:/path/to/app1,/app2:/path/to/app2"
+
+ &lt;Directory /path/to/app1&gt;
+     SetHandler mono
+     DirectoryIndex Default.aspx
+ &lt;/Directory&gt;
+
+ &lt;Directory /path/to/app2&gt;
+     SetHandler mono
+     DirectoryIndex SomePage.aspx
+ &lt;/Directory&gt;
+</pre>
+
+	<p>Will enable both <code>http://servername/app1</code> and <code>http://servername/app2</code> to work.</p>
+
+
+<hr />
+
+	<p id="fn1"><sup>1</sup> The release notes refer to installing 1.1.1<sup><a href="#fn2">2</a></sup> though&#8230;</p>
+
+
+	<p id="fn2"><sup>2</sup> <a href="http://www.go-mono.com/archive/1.1.1/">Mono 1.1.1</a> (development) has also been released &#8211; I&#8217;ve not looked at it yet though.</p>

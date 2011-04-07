@@ -1,0 +1,95 @@
+--- 
+kind: article
+created_at: 2005-05-17 17:07:00 +01:00
+title: That new distro smell
+tags: 
+- Uncategorized
+---
+
+<h3>Update</h3>
+
+
+	<p><ins>The content of this post now has a new <a href="http://schwuk.backpackit.com/pub/65452">home</a> in my <a href="http://backpackit.com/">backpack</a>.</ins></p>
+
+
+<hr />
+
+	<p>Just completed a fresh install of <a href="http://www.ubuntulinux.org/wiki/HoaryHedgehog">Ubuntu Hoary</a> so that I had a clean slate to base my <a href="/entries/109">MonoFromSource instructions</a> on. Now that&#8217;s out of the way I need to configure things back the way I like them, so I thought I&#8217;d make myself some notes here.</p>
+
+
+	<p>As you can imagine, this is a work in progress so I&#8217;ll add things as I go along.</p>
+
+
+	<h3>Step 1 &#8211; repositories</h3>
+
+
+	<p>Based on the instructions on the <a href="http://ubuntuguide.org/">Unofficial Ubuntu 5.04 Starter Guide</a>, here is my <code>/etc/apt/sources.list</code>:</p>
+
+
+<pre>
+ deb http://gb.archive.ubuntu.com/ubuntu/ hoary main restricted universe multiverse
+ deb-src http://gb.archive.ubuntu.com/ubuntu hoary main restricted universe multiverse
+
+ deb http://gb.archive.ubuntu.com/ubuntu/ hoary-updates main restricted universe multiverse
+ deb-src http://gb.archive.ubuntu.com/ubuntu hoary-updates main restricted universe multiverse
+
+ deb http://security.ubuntu.com/ubuntu/ hoary-security main restricted universe multiverse
+ deb-src http://security.ubuntu.com/ubuntu hoary-security main restricted universe multiverse
+
+ deb ftp://ftp.nerim.net/debian-marillat stable main
+ deb ftp://ftp.nerim.net/debian-marillat unstable main
+ deb ftp://ftp.nerim.net/debian-marillat testing main
+</pre>
+
+	<h3>Step 2 &#8211; install software</h3>
+
+
+	<p>Here&#8217;s a rough list of what I consider <strong>essential</strong> software:</p>
+
+
+<pre>
+ $ sudo apt-get install flashplayer-mozilla evince gftp \
+ gstreamer0.8-plugins w32codecs libdvdcss2 beep-media-player \
+ gnomebaker ubuntu-calendar nvidia-glx nvidia-settings firestarter \
+ xfonts-intl-arabic xfonts-intl-asian xfonts-intl-chinese \
+ xfonts-intl-chinese-big xfonts-intl-european xfonts-intl-japanese \
+ xfonts-intl-japanese-big xfonts-intl-phonetic gsfonts-x11 \
+ msttcorefonts rar
+</pre>
+
+	<p>Then I&#8217;ll enable the <span class="caps">NVIDIA</span> driver with:</p>
+
+
+<pre>
+ $ sudo nvidia-glx-config enable
+</pre>
+
+	<p>I also follow the <acronym title="Unofficial Ubuntu Starter Guide">UUSG</acronym> for <a href="http://ubuntuguide.org/#jre">installing <span class="caps">JRE</span></a>.</p>
+
+
+	<h3>Step 4 &#8211; compile software</h3>
+
+
+	<ul>
+	<li><a href="http://www.ubuntulinux.org/wiki/MonoFromSource">Mono</a> (duh)</li>
+		<li><a href="/entries/96">MPlayer</a></li>
+		<li>Tomboy</li>
+		<li>Beagle</li>
+	</ul>
+
+
+	<h3>Step 5 &#8211; configuration</h3>
+
+
+	<p>I leave Ubuntu pretty much as-is, except for <a href="/entries/97">disabling the Semi-Spatial Nautilus</a></p>
+
+
+	<h3>Step 6 &#8211; Firefox extensions</h3>
+
+
+	<ul>
+	<li><a href="http://chrispederick.com/work/firefox/webdeveloper/">Web Developer</a></li>
+		<li><a href="http://heygom.com/extensions/?cat=2">LiveLines</a></li>
+		<li><a href="http://delicious.mozdev.org/">del.icio.us</a> (I also add my del.icio.us rss feed as a live bookmark in Firefox)</li>
+		<li><a href="http://www.nexgenmedia.net/extensions/">GMail Notifier</a></li>
+	</ul>

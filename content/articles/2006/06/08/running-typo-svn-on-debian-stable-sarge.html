@@ -1,0 +1,113 @@
+--- 
+kind: article
+created_at: 2006-06-08 12:29:51 +01:00
+title: Running Typo svn on Debian Stable (Sarge)
+tags: 
+- backport
+- debian
+- Linux
+- postgresql
+- ruby
+- rubyonrails
+- Uncategorized
+---
+
+<p>After numerous attempts to upgrade this site to the latest version of <a href="http://www.typosphere.org/trac/">Typo</a> and the current version of <a href="http://rubyonrails.org/">Ruby on Rails</a> I&#8217;ve finally succeeded. The things that tripped me up were:</p>
+
+
+	<ul>
+	<li>Debian `stable` <a href="http://packages.debian.org/stable/interpreters/ri1.8">ships</a> Ruby 1.8.2. Whilst this is fine for Rails 1.1 I couldn&#8217;t <a href="http://www.recentrambles.com/pragmatic/view/51">migrate</a> to Typo svn&#8217;s schema which I thought meant I needed 1.8.4. I didn&#8217;t</li>
+		<li>I was running Postgres 7.4.7 (again Debian <a href="http://packages.debian.org/stable/misc/postgresql">default</a> which <strong>was</strong> causing the  migration problems</li>
+	</ul>
+
+
+	<p>Once I&#8217;d figured my way past those I&#8217;m now running Postgresql from <a href="http://backports.org/">Debian Backports</a> and Ruby 1.8.4 of my own concoction, with Rails 1.1 (from gems, not debs). A side effect of this is that my old theme was broken on Typo svn so for the time being I&#8217;ve switched to <a href="http://quotedprintable.com/pages/scribbish">Scribbish</a> which is a fantastic theme for for general use and to base your own on &#8211; which I shall be doing shortly.</p>
+
+
+	<p>Here&#8217;s what I did to solve the package issues I had.</p>
+
+            <!--more-->
+
+            <ol>
+	<li>Backporting Ruby 1.8.4 from `unstable`</li>
+	</ol>
+
+
+	<p>Because there aren&#8217;t any offical backports of Ruby 1.8.4 available, you&#8217;ll need to roll your own from `unstable` Here&#8217;s how:</p>
+
+
+	<p>Add the following line to your `/etc/apt/sources.list`:</p>
+
+
+	<pre><code>deb-src http://ftp.debian.org/debian/ unstable main</code></pre>
+
+
+	<p><strong>You&#8217;ll probably want to change the repository <span class="caps">URL</span> to suit.</strong></p>
+
+
+	<p>You&#8217;ll need to do an `apt-get update` then you can carry out the following as `root`:</p>
+
+
+	<pre><code>$ apt-get source ruby1.8
+$ apt-get build-dep ruby1.8
+$ apt-get install devscripts
+$ cd ruby1.8-1.8.4
+$ debuild -us -uc</code></pre>
+
+
+	<p>Your deb&#8217;s will be placed in the parent folder of `ruby1.8-1.8.4`.</p>
+
+
+	<p>You may want to do the same for `ri`, `rdoc`, `irb` and `rake` (I did).</p>
+
+
+	<ol>
+	<li>Installing Postgresql 8.1</li>
+	</ol>
+
+
+	<p>This is much easier to do, but be warned if you&#8217;re upgrading from 7.4: you should backup all your databases and remove (or better yet) purge your existing installed packages. If you don&#8217;t you can end up in a mess (I did).</p>
+
+
+	<p>Add the following line to your `/etc/apt/sources.list`:</p>
+
+
+	<pre><code>deb http://www.backports.org/debian sarge-backports main</code></pre>
+
+
+	<p>Edit the file `/etc/apt/preferences` (you may need to create it) and add the following:</p>
+
+
+	<pre><code>Package: *
+Pin: release a=sarge-backports
+Pin-Priority: 200</code></pre>
+
+
+	<pre><code>Package: postgresql-8.1
+Pin: release a=sarge-backports
+Pin-Priority: 999</code></pre>
+
+
+	<pre><code>Package: postgresql-common
+Pin: release a=sarge-backports
+Pin-Priority: 999</code></pre>
+
+
+	<pre><code>Package: lsb-base
+Pin: release a=sarge-backports
+Pin-Priority: 999</code></pre>
+
+
+	<pre><code>Package: ssl-cert
+Pin: release a=sarge-backports
+Pin-Priority: 999</code></pre>
+
+
+	<p>Now installing is as simple as:</p>
+
+
+	<pre><code>$ apt-get update
+$ apt-get install postgresql-8.1</code></pre>
+
+
+	<p><b>This</b> is why I love Debian and it&#8217;s offspring.</p>

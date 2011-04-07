@@ -1,0 +1,38 @@
+--- 
+kind: article
+created_at: 2009-03-10 10:21:53 +00:00
+title: Financially Viable?
+tags: 
+- amazon
+- ec2
+- screen
+- screen-profiles
+- Ubuntu
+---
+
+Recently, and probably unsurprisingly, I've been playing with <a href="http://aws.amazon.com/ec2/">Amazon EC2</a> and in particular the <a href="http://www.ubuntu.com/ec2">Ubuntu Server beta</a>. So far I've been thoroughly impressed with its flexibility and power - especially the new management interface -  although I've not really explored beyond short lived test instances. I did wonder about migrating this server over to a long running instance, but my back-of-a-napkin calculations showed that I would be spending at least four times what I am currently paying for my <a href="http://linode.com">Linode</a>.
+
+Now Dustin Kirkland has made that job much easier using his <a href="http://blog.dustinkirkland.com/2009/02/when-is-amazons-ec2-appropriate-for.html">ec2-cost utility in screen-profiles</a> (use the <a href="https://launchpad.net/%7Escreen-profiles/+archive/ppa">PPA</a> if you're not on Jaunty). It can be used with screen-profiles, or used directly:
+
+<pre>
+$ /usr/share/screen-profiles/bin/ec2-cost  --detail
+
+================================================
+Estimated cost in Amazon's EC2 since last reboot
+================================================
+  Network sent:  0.420872 GB   @ $0.10/GB
+  Network recv:  0.327810 GB   @ $0.17/GB
+  Network cost:  0.104329
+------------------------------------------------
+  Uptime:        141 hr  @ $0.400000/hr
+  Uptime cost:   $56.400000
+------------------------------------------------
+Total cost:      ~$56.50
+================================================
+</pre>
+
+Hmm - $56.50 for 141 hours? Doesn't really compare to $19.95 for ~720 hours (+ lots of transfer) in an average month, but it won't stop me from using for short tasks/tests.
+
+<strong>How much would you have spent?</strong>
+
+<ins datetime="2009-03-10T13:33:47+00:00">Just for clarification, I know comparing EC2 to traditional hosting is akin to apples and oranges - I had no intention of moving my own server over after my napkin calculations, but I just wanted to share Dustin's useful script.</ins>

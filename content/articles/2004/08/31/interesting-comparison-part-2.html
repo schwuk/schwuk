@@ -1,0 +1,100 @@
+--- 
+kind: article
+created_at: 2004-08-31 15:45:00 +01:00
+title: Interesting comparison - part 2
+tags: 
+- Uncategorized
+---
+
+<p>I&#8217;ve been playing some more&#8230;</p>
+
+
+	<p>Prompted by <a href="http://www.kryogenix.org/">Aq</a> I looked into consuming web services with <a href="http://www.python.org/">Python</a>. The words <a href="http://diveintopython.org/soap_web_services/index.html#soap.divein">embarrassingly</a> <a href="http://pywebsvcs.sourceforge.net/">easy</a> seem to be the best description&#8230;</p>
+
+
+	<p>Of course consuming a web service in a console app wasn&#8217;t a fair comparison, so I started looking at <a href="http://www.pygtk.org/">PyGTK</a> based on my experiences of using <span class="caps">GTK</span># in Mono. I then drifted into <a href="http://glade.gnome.org/">Glade</a> which, although slightly clunky, works really well. This then lead me into using <a href="http://primates.ximian.com/~edasque/projects/Tutorial/glade2.html">Glade#</a> with Mono.</p>
+
+
+	<h3>Screenshots</h3>
+
+
+<txp:image id="5" />
+Mono w/Glade# on Linux
+
+<txp:image id="8" />
+Mono w/Glade# on Microsoft Windows XP
+
+<txp:image id="6" />
+Python w/Glade on Linux
+
+<txp:image id="7" />
+Python w/Glade on Microsoft Windows XP
+
+	<p><em>The same Glade file was used by both Mono and Python.</em></p>
+
+
+	<h3>Comparison</h3>
+
+
+	<table>
+		<tr>
+			<td>Language</td>
+			<td>Project Size (KB)</td>
+			<td>Binary Size<sup><a href="#fn1">1</a></sup> (KB)</td>
+		</tr>
+		<tr>
+			<td>Mono<sup><a href="#fn2">2</a></sup></td>
+			<td>20.6</td>
+			<td>8</td>
+		</tr>
+		<tr>
+			<td><span class="caps">NET 2</span>.0<sup><a href="#fn3">3</a></sup></td>
+			<td>23.5</td>
+			<td>20</td>
+		</tr>
+		<tr>
+			<td>Mono<sup><a href="#fn4">4</a></sup></td>
+			<td>18.5</td>
+			<td>12.5<sup><a href="#fn5">5</a></sup></td>
+		</tr>
+		<tr>
+			<td>Python</td>
+			<td>6.4</td>
+			<td>n/a</td>
+		</tr>
+	</table>
+
+
+
+
+	<p id="fn1"><sup>1</sup> Compiled in Debug mode</p>
+
+
+	<p id="fn2"><sup>2</sup> Using <span class="caps">GTK</span>#</p>
+
+
+	<p id="fn3"><sup>3</sup> Using System.Windows.Forms</p>
+
+
+	<p id="fn4"><sup>4</sup> Using Glade#</p>
+
+
+	<p id="fn5"><sup>5</sup> The Glade file (5.5KB) is embedded within the executable</p>
+
+
+	<h3>Observations</h3>
+
+
+	<p>Glade is nice. :)</p>
+
+
+	<p>Neither Python nor Mono (on Linux) used the padding I had set in Glade.</p>
+
+
+	<p>Python is obviously smaller, yet not as complete. I was able to transfer my Mono app between Mono enabled machines (including XP!) with nothing other that the executable, yet Python required both <a href="http://www.analytics.washington.edu/~warnes/fpconst/">fpconst</a> and <a href="http://pywebsvcs.sourceforge.net/">SOAPpy</a> to be installed on the target machines for Linux, and additionally <a href="http://www.pcpm.ucl.ac.be/~gustin/win32_ports/pygtk.html">PyGTK</a>, <a href="http://gladewin32.sourceforge.net/modules.php?name=Downloads&#38;d_op=getit&#38;lid=13">libglade.dll</a>, the <a href="http://gladewin32.sourceforge.net/modules.php?name=Downloads&#38;d_op=viewdownload&#38;cid=4"><span class="caps">GTK</span>+ runtime</a> and libxml2.dll for Win32. Portable? Yes. Easy? No&#8230; (There is an <a href="http://s1x.homelinux.net/documents/Xpython/xpygtk_tut">easier</a> way though) Oh, and the Win32 version still doesn&#8217;t work &#8211; libxml2 b0rks.</p>
+
+
+	<p>Also, you lose the Managed Code side of Mono/.NET with Python.</p>
+
+
+	<p>It was an interesting exploration, but I think I&#8217;ll be sticking with Mono from now on. Next up &#8211; getting <span class="caps">ASP</span>.NET to work&#8230;</p>

@@ -1,0 +1,24 @@
+--- 
+kind: article
+created_at: 2004-07-14 10:32:00 +01:00
+title: Use your Palm with Fedora Core 1
+tags: 
+- Uncategorized
+---
+
+<p>Finally discovered how to get my <a href="http://www.palmone.com/us/support/palm5x/">Palm Vx</a> working with <a href="http://fedora.redhat.com/">Fedora Core 1</a> today.</p>
+
+
+	<p>As root, enter the following:</p>
+
+
+<pre>
+<code>
+$ chmod o+rw /dev/ttySn
+</code>
+</pre>
+
+	<p>Where <em>n</em> is the number of your serial port e.g. ttyS0 corresponds to <span class="caps">COM1</span> , ttyS1 <span class="caps">COM2</span>, etc.</p>
+
+
+	<p>Hey presto! My sychronisation with Evolution now works!</p>

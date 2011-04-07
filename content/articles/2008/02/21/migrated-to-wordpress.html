@@ -1,0 +1,39 @@
+--- 
+kind: article
+created_at: 2008-02-21 23:02:02 +00:00
+title: Migrated to WordPress
+tags: 
+- blog
+- Linux
+- mephisto
+- php
+- Python
+- Ruby On Rails
+- wordpress
+---
+
+First of all, apologies for any 'planet spam' caused the change to my feeds.
+
+After what seems like an eternity (but is actually just over a <a href="http://schwuk.com/articles/2007/01/01/reborn" title="My switch from Typo to Mephisto" target="_blank">year</a>) I've switched the backend of this site from Mephisto to WordPress. The main reason for the switch was my overall dissatisfaction with Mephisto coupled with its lack of development (or a least stable releases) along with the fact that I was maintaining a Ruby on Rails production environment for one application. Mephisto frustrated me in many ways, from its inability to handle archives/pagination to not being able to accept pingbacks to not working with external clients. All of these were fixable, but I really didn't have the patience or the time.
+
+Here is my tale of migrating from Mephisto to WordPress, and how I achieved it.
+
+<!--more-->I was also going to write my own 'blog' software in either Django or Rails (apparently this is the mark of true developer), but again I've got better things to do and with a couple of projects I'm involved with utilising WordPress it was less "eating my own dogfood" more "eating the dogfood I would be serving to others".
+
+As an aside, the dogfood analogy really is gross, but it works.
+
+I initially despaired with migrating from Mephisto. Although there are a couple of scripts to migrate <strong>to</strong> it, as a fairly niche product there are zero scripts I could find to migrate <strong>from</strong> it.
+
+So I started writing my own.
+
+My original plan was to simply massage the data between the two databases, but with my Mephisto using PostgreSQL and WordPress being restricted to MySQL that was never going to be easy. My second plan was to dump the data out into some interim format, then inject it directly into the WordPress tables. At this point I started playing around with WordPress itself, and discovered its ability to import data from a variety of formats, including its own WordPress eXtended RSS (WXR) format - a format that isn't <a href="http://lucumr.pocoo.org/cogitations/2008/02/18/how-not-to-do-xml/" title="How not to do XML" target="_blank">too popular</a>. My third plan was formed - I would craft a Python script that would generate a WXR file from my Mephisto database, then let WordPress handle the import for me.
+
+Getting the data into the right format was fun, but xml.dom.minidom served me well. Importing the data proved a bit more problematic due to the fact that the import script in WordPress doesn't do XML at all, but rather Regular Expressions. A couple of tweaks to my script and the file was 'well formed' as far was WordPress was concerned.
+
+The next import problem was caused by tags and categories. These are separate in Mephisto (and so names can be duplicated), but not so in WordPress. A bit of manual cleanup was required post-import, but the <a href="http://www.neato.co.nz/wordpress-things/tag-managing-thing" title="Tag Managing Thing">Tag Managing Thing</a> plugin made this less of a chore and let me optimise my tags and categories at the same time.
+
+The script is by no means production ready, and is currently tailored for my preferences, but if there is enough demand I will Open Source it.
+
+Of course no upgrade is without its problems. All permalinks and tags should continue to work, but categories have been moved into the /category/ path. Feeds should be mostly working (I've manually updated the two planets that use category specific feeds, and I'll keep an eye on my stats to see if any others are being used). If you find something that is broken <a href="http://schwuk.com/contact" title="contact me">let me know</a>.  The other obvious difference is that my design (for those of you that don't live in Google Reader) has gone. I'm working on a new design, but until then K2 (with some tweaks) will suffice. I'm sure you'll cope without the ads... :)
+
+Of course WordPress gives me some new toys to play with. Trackbacks now work, and I've enabled OpenID for those that use it (i.e. me). I'm still using Akismet for comments, but I've also added a captcha - I'll see how that goes.

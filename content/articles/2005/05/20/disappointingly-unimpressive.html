@@ -1,0 +1,27 @@
+--- 
+kind: article
+created_at: 2005-05-20 20:58:20 +01:00
+title: Disappointingly unimpressive
+tags: 
+- Uncategorized
+---
+
+<p>I&#8217;ve spent the last day getting my head around <a href="http://www.adaptivepath.com/publications/essays/archives/000385.php">Ajax</a>, and in particular <a href="http://ajax.schwarz-interactive.de/csharpsample/default.aspx">Ajax.NET</a>.</p>
+
+
+	<p>You see I was writing a web application, and one form involved the user specifying a value which was stored within a database. I could have used a select (drop down list), but I could be dealing with potentially hundreds or even thousands of &#8216;correct&#8217; values.</p>
+
+
+	<p>My solution?</p>
+
+
+	<p>Use Ajax to validate the value the user types without a postback, and do you know what? It works, but it works <em>so well</em> that it&#8217;s unimpressive.</p>
+
+
+	<p>Seems strange doesn&#8217;t it.</p>
+
+
+	<p>Such a neat piece of technology but because it works so seamlessly it can easily be taken for granted. Admittedly it&#8217;s fairly unobtrusive &#8211; it simply colours the value typed depending on its state (black = unchecked, green = valid, red = invalid) and it&#8217;s double-checked on postback, but from initial tests it makes the form <strong>much</strong> easier to use.</p>
+
+
+	<p>I&#8217;ve never really bothered with Javascript before &#8211; I figured it was too much hassle, plus there were all the cross browser issues to worry about &#8211; but now I can really see the power of Ajax, and it  makes me wonder what else I can improve by using it. I can also see where it could cause problems, implementing features for features sake. Next on my list is to learn more about it (and Javascript in general) and in particular investigate the <a href="http://prototype.conio.net/">Prototype</a> library.</p>

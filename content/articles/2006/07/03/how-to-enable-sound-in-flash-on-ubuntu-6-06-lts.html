@@ -1,0 +1,41 @@
+--- 
+kind: article
+created_at: 2006-07-03 01:10:14 +01:00
+title: How to enable sound in Flash on Ubuntu 6.06 LTS
+tags: 
+- alsa
+- dapper drake
+- firefox
+- fix
+- flash
+- oss
+- sound
+- Ubuntu
+- Uncategorized
+---
+
+<p>Ubuntu 6.06 <span class="caps">LTS</span> (Dapper Drake) has an annoying problem: if you install the `flashplugin-nonfree` package you get no sound. This is documented in bug <a href="https://launchpad.net/distros/ubuntu/+source/flashplugin-nonfree/+bug/29760">#29760</a>.</p>
+
+
+	<p>Fortunately the fix is easy:</p>
+
+
+	<p><b>Step 1.</b> Install the `alsa-oss` package:
+
+	<p>$ sudo apt-get install alsa-oss</p>
+</p>
+
+
+	<p><b>Step 2.</b> Edit `/etc/firefox/firefoxrc` to match the following:
+
+	<ol>
+	<li>which /dev/dsp wrapper to use
+<span class="caps">FIREFOX</span>_DSP=&#8221;aoss&#8221; </li>
+		<li>Note that &#8220;auto&#8221; and &#8220;esd&#8221; involve the use of esddsp, which</li>
+		<li>is known to be buggy and to make Firefox unstable.</li>
+		<li>See https://launchpad.net/malone/bugs/29760.</li>
+	</ol>
+</p>
+
+
+	<p>That&#8217;s it! Restart Firefox and away you go.</p>

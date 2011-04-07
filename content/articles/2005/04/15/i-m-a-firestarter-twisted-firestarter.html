@@ -1,0 +1,27 @@
+--- 
+kind: article
+created_at: 2005-04-15 12:30:32 +01:00
+title: I'm a firestarter, twisted firestarter
+tags: 
+- Uncategorized
+---
+
+<p>Although I&#8217;ve got some familiarity with Netfilter/IPTables, I rarely bother with complicated rules on my desktops (although I&#8217;d probable be more paranoid if I was connecting my machine to someone else&#8217;s network).</p>
+
+
+	<p>I&#8217;ve played with some of the firewall GUIs that ship with Fedora (mainly the firewall questions in the installer, and occasionally gnome-lokkit), but I didn&#8217;t really get into them that much.</p>
+
+
+	<p>Yesterday I came across <a href="http://www.fs-security.com/">Firestarter</a> which is a really nice tool for configuring and monitoring your firewall, so now my home machines are more secure.</p>
+
+
+	<p>As a downside to this, I discovered the <span class="caps">NFS</span> <strong>really</strong> doesn&#8217;t play nicely with firewalls. This became particularly apparent on my first reboot after enabling Firestarter. Ubuntu mounts remote drives before starting the firewall, so the initial <span class="caps">NFS</span> mount worked fine but the firewal then broke the connection. Not realising this, I tried to log into <span class="caps">GNOME</span> with then hung because of the blocked <span class="caps">NFS</span> mountpoint. Took me ages to figure out exactly what was occuring, during which time I did more damage trying to fix it!</p>
+
+
+	<p>Because all my music is hosted on another box, I was using <span class="caps">NFS</span> to access it but now that&#8217;s gone out of the window in favour of a more elegant solution &#8211; <a href="http://slimdevices.com/pi_features.html">SlimServer</a> and <a href="http://softsqueeze.sourceforge.net/">Softsqueeze</a>. Except now of course I&#8217;ve added a <a href="http://slimdevices.com/pi_specs.html">Squeezebox2</a> to my (ever growing) hardware wish list&#8230;</p>
+
+
+	<p>Whilst I was setting up Slimserver, I also configured <a href="http://www.mt-daapd.org/">mt-daapd</a> for the same music repository, so any machines that are running iTunes (my work laptop) or can speak <acronym title="Digital Audio Access Protocol">DAAP</acronym> ( i.e. <a href="http://www.xboxmediacenter.de/">XboxMediaCenter</a>) can use the media with little/no effort.</p>
+
+
+	<p>On a final note, apart from my Bluetooth headset/VoIP softphone solution I&#8217;ve now migrated to Linux full time for everything else. For the time being I using a wired headset with the softphone, but I&#8217;m looking into hardware units instead. You can tell you&#8217;ve turned the corner when it&#8217;s quicker/easier to do things in Linux than Microsft Windows!</p>

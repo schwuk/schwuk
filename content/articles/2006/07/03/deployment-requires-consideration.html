@@ -1,0 +1,35 @@
+--- 
+kind: article
+created_at: 2006-07-03 13:04:24 +01:00
+title: Deployment requires consideration
+tags: 
+- hosting
+- Linux
+- rubyonrails
+- Uncategorized
+---
+
+<p>complains that deploying a Rails application is a sticking point for most:</p>
+
+
+<blockquote>
+	<p>For the average person, making choices about web servers and configuring proxying through Apache is too much.</p>
+
+</blockquote>
+
+
+
+
+	<p>...and he&#8217;s absolutely right. If I didn&#8217;t run my own server, I&#8217;d probably have ditched RoR by now. The only problem is what else would I have gone with?</p>
+
+
+	<p>Sure RoR has it&#8217;s fair share of unique problems &#8211; although I believe the benefits you gain far outweigh these issues &#8211; but anything except middle of the road <span class="caps">PHP</span> and vanilla <span class="caps">HTML</span> will have their own problems. Want to run <span class="caps">ASP</span>.NET? You either need Windows hosting (£££) or fight with mod_mono. <span class="caps">PHP5</span>? Not all hosts have switched to it, and you might be limited with libraries/versions etc. Want to use Postgresql instead of MySQL? You can poke holes in any language/platform/framework, and all of them have their own workarounds and solutions.</p>
+
+
+	<p>Deployment is part of the bigger picture, and one that often gets overlooked during development (especially for smaller webapps). If you&#8217;re going to pick an up-and-coming technology like RoR then you need to consider deployment issues. It&#8217;s not going to work with your generic hosting provider, and even if they do offer Rails support then you&#8217;ve still got the problems that come with sharing a server. If you&#8217;re lucky enough to get one with Rails and decent performance then you&#8217;re still restricted to their versions.</p>
+
+
+	<p>As far as I&#8217;m concerned, running your own server is the only way to go. For the (small) premium you pay to get a <span class="caps">UML</span> server over a virtual host, the freedom you get is more than worth it. Of course not everyone has the knowledge/skills or desire to run their own box, so there will always be a niche for companies like <a href="http://railsmachine.com/">RailsMachine</a>, <a href="http://engineyard.com/">EngineYard</a> and <a href="http://www.planetargon.com/hosting.html">Planet Argon</a> and it&#8217;s up to them to streamline deployment for their customers.</p>
+
+
+	<p>So what if you want freedom of your own server but not the hassle of running it? Well maybe there&#8217;s a business opportunity there&#8230;</p>

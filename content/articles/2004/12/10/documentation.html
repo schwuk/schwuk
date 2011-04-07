@@ -1,0 +1,45 @@
+--- 
+kind: article
+created_at: 2004-12-10 06:53:24 +00:00
+title: Documentation
+tags: 
+- Uncategorized
+---
+
+<p>I&#8217;m a procrastinator. Whilst reading <a href="http://www.ritaemmett.com/handbook.htm">The Procrastinator&#8217;s Handbook</a> a few years  ago (the only eBook I&#8217;ve paid money for <span class="caps">IIRC</span>) I discovered the main reason I procrastinate &#8211; I&#8217;m a perfectionist. Quite simply I put off jobs because I want to do a good job.</p>
+
+
+	<p>Sounds daft, but it isn&#8217;t. I don&#8217;t like half-hearted attempts or botched results (which make me an extremely bad <span class="caps">DIY</span>&#8217;er because I never start jobs, much to my wife&#8217;s lament), so I put off doing the job until I&#8217;m sure I can do it the best that I can.</p>
+
+
+	<p>This brings us onto the topic for this post &#8211; documentation. Loved by users, depised by documentors. I often struggle to write documentation because:</p>
+
+
+	<ol>
+	<li>I don&#8217;t know what to write</li>
+		<li>I don&#8217;t know what to write it with</li>
+	</ol>
+
+
+	<p>Once I get going I&#8217;m fine, but it&#8217;s that first step that trips me up repeatedly.</p>
+
+
+	<h3>What to write?</h3>
+
+
+	<p>Why are there not any guides out there that say &#8220;write <strong>these</strong> documents like <strong>this</strong>&#8221;? I&#8217;m talking everything here, from architecture documents to developer guides to user guides to release notes.</p>
+
+
+	<h3>What to write it with?</h3>
+
+
+	<p>This is a biggy. I want to be able to create all my documentation with as few tools as possible, and preferably support different formats/outputs.</p>
+
+
+	<pre><code>I've tried various solutions - Microsoft Word/OOo Writer with PDF output, HTML, POD, Docbook, HTMLHELP, plain text. All work on one level or another, but there's no consistancy.</code></pre>
+
+
+	<p>Docbook seems to be best of the bunch as it removes the emphasis on presentation that MS Word puts there, it allows multiple destination formats from a single source, and it plays nicely with <acronym title="Source Code Management">SCM</acronym>. It&#8217;s just so damn hard to use. Yet another syntax to learn (which is too close to <span class="caps">HTML</span> &#8211; it&#8217;s just asking for problems) and a problematic toolchain on non-UNIX platforms.</p>
+
+
+	<p>I want a documentation solution that provides something like the editing flexibility (and simple markup) of a Wiki, with the presentation control and output formats of Docbook. Anybody know of one?</p>

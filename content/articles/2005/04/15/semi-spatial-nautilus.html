@@ -1,0 +1,35 @@
+--- 
+kind: article
+created_at: 2005-04-15 12:04:07 +01:00
+title: Semi-Spatial Nautilus
+tags: 
+- Uncategorized
+---
+
+<p>For some reason (I&#8217;ve not looked into it, so someone please tell me) Ubuntu decided to break the spatial nautilus in Hoary (5.04). Now when you open folder, it opens in a new window (as before), <strong>but is closes the previous one</strong>.</p>
+
+
+	<p>Not good.</p>
+
+
+	<p>Fortunately, there&#8217;s a (relatively) easy way of fixing this:</p>
+
+
+	<ol>
+	<li>Run <code>gconf-editor</code> (Applications -&gt; System Tools -&gt; Configuration Editor for the mouse-bound)</li>
+	</ol>
+
+
+	<ol>
+	<li>Navigate to the key <code>/apps/nautilus/preferences</code></li>
+	</ol>
+
+
+	<ol>
+	<li>Tick the checkbox for <code>no_ubuntu_spatial</code></li>
+	</ol>
+
+
+	<ol>
+	<li>Sit back and relax, knowing all is now well in the world once more</li>
+	</ol>

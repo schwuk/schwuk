@@ -1,0 +1,27 @@
+--- 
+kind: article
+created_at: 2006-05-20 00:27:00 +01:00
+title: Cleaning out comment spam in Typo
+tags: 
+- Uncategorized
+---
+
+<p>It would appear that this site has become a target for comment spam. This has happened before, but I just cleaned it up (see below) and forgot about it. However they hit me even harder this time, so I decided to make some changes.</p>
+
+
+	<p>From now on, comments will be automatically disabled after 14 days. This may be reduced in the future.</p>
+
+
+	<h3>Cleaning Up</h3>
+
+
+	<p>Fortunately for me, the spam is all created in a certain time frame (usually greater than 14 days, hence my chosen cutoff period) and because my site is very low traffic these days, I&#8217;m confident that simply dumping all comments created during that period will only hit a minimum of real commentary. I could be more specific in my target period (e.g. determine the timestamps of the first and last comment), but I&#8217;ve foundthe below Postgresql query to be good enough for my needs. <span class="caps">YMMV</span>.</p>
+
+
+<pre>
+<code>
+delete from comments where date_trunc('day', created_at) = date_trunc('day', current_date - n);
+</code>
+</pre>
+
+	<p>Where <code>n</code> is the number of days since the spam was created (easy to spot in the Typo admin view).</p>

@@ -1,0 +1,23 @@
+--- 
+kind: article
+created_at: 2008-01-23 18:23:00 +00:00
+title: Spoof!
+tags: 
+- filesystems
+- Linux
+- mail
+- postfix
+- spam
+- sysadmin
+---
+
+<p>or Fun Ways To Spend Your Afternoon #4853</p>
+
+
+	<p>This afternoon I started getting mails saying that messages had been rejected due to lack of storage. Over 2000 appeared in a very short space of time &#8211; it seems my domain has been <a href="http://en.wikipedia.org/wiki/Spoofing_attack#E-mail_address_spoofing">spoofed</a> once again. This wouldn&#8217;t be a big deal except that my server was already near capacity and this flurry of activity pushed it over the edge. I&#8217;d been aware of the space issue for a while, and had plans to address it but quite simply hadn&#8217;t bothered until I was forced into action.</p>
+
+
+	<p>My planning had gotten as far as preparing a larger partition for /var, but it was sitting idle. A quick reboot into single user mode, mount the new partition, copy the data, unmount, move &amp; rename the folders, edit /etc/fstab, remount, check everything appears normal and reboot. By far the longest part was copying the data &#8211; next time I&#8217;m using rsync so I can track progress.</p>
+
+
+	<p>Unfortunately the bounces are still rolling in. I think I&#8217;m finally going to have to look into getting <a href="http://en.wikipedia.org/wiki/Sender_Policy_Framework"><span class="caps">SPF</span></a> set up.</p>

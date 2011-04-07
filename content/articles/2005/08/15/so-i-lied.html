@@ -1,0 +1,30 @@
+--- 
+kind: article
+created_at: 2005-08-15 00:43:00 +01:00
+title: So I lied
+tags: 
+- Uncategorized
+---
+
+<p>So the other day I <a href="/articles/2005/08/11/rolling-my-own">complained</a> about various web applications and promised to hand roll my own one.</p>
+
+
+	<p>I lied.</p>
+
+
+	<p>I started digging a bit more into <a href="http://www.rubyonrails.com/">RoR</a>, and played a bit with customising <a href="http://typo.leetsoft.com">Typo</a> and got addicted.</p>
+
+
+	<p>A short while later I had a working version of this site up and running, and looking pretty much as you see it now. This was all on a development box on my home network, so happy with the results I decided to take the plunge and push it up to my production server. This is where the trouble began.</p>
+
+
+	<p>I&#8217;ve been running a <a href="http://linode.com">Linode</a> successfully for quite a while now. I&#8217;ve always used <a href="http://httpd.apache.org">Apache</a>, but the limited <span class="caps">RAM</span> of my configuration just wouldn&#8217;t let me run Apache 2 with <a href="http://www.fastcgi.com/">FastCGI</a> without grinding the box to a halt. I spent a little while chatting to some folk on #rubyonrails and #typo on Freenode, and based on this I started looking into replacing Apache with <a href="http://www.lighttpd.net/">LightTPD</a>. It took me a while to iron out the creases, but once I&#8217;d got it figured out I was seriously impressed.</p>
+
+
+	<p>As you can probably guess, I&#8217;ve now made  the full transisition &#8211; both to a LightTPD and Typo. Some things are broken (I need to figure out a decent redirection system) but generally things are working.</p>
+
+
+	<p>To make life easier for those who use their favourite feed readers, I started using <a href="http://feedburner.com">FeedBurner</a> to host/translate my feed. They provide an excellent, free service which includes (amongst other things) translating your feed to the correct formatter for the reader accessing it. This means I don&#8217;t need to worry about a) providing multiple feeds and b) updating/redirecting feeds if I change software again. For the record, the old textpattern <span class="caps">RSS</span> and atom feeds are now being redirected. Another nice feature of FeedBarner is that it combines feeds automagically, so my new feed contains content from both this site and my <a href="http://del.icio.us/schwuk">del.icio.us</a> tags. In time I will (probably) also add my <a href="http://flickr.com/photos/schwuk/">Flickr</a> feed to the mix as well. Guess I&#8217;ll have to upload some photos first though!</p>
+
+
+	<p>My new feed can therefore be found at: <a href="http://feeds.feedburner.com/schwuk">http://feeds.feedburner.com/schwuk</a></p>

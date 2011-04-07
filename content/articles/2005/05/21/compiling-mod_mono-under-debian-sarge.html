@@ -1,0 +1,23 @@
+--- 
+kind: article
+created_at: 2005-05-21 22:06:26 +01:00
+title: Compiling mod_mono under Debian Sarge
+tags: 
+- Uncategorized
+---
+
+<p>As part of <a href="/entries/115">re-enabling Mono</a> I encountered a strange error when I was compiling <a href="http://www.mono-project.com/Mod_mono">mod_mono</a>:</p>
+
+
+<pre>
+ apxs:Error: no config variable PREFIX
+</pre>
+
+	<p>The solution (via <a href="http://www.serializing.net/index.php?gadget=Blog&#38;action=SingleView&#38;id=49">Gonzalo</a>) is to modify the Makefile slightly:</p>
+
+
+<pre>
+ $ sed -i -e 's/ -S PREFIX="$(prefix)"//' src/Makefile.in
+</pre>
+
+	<p>Do this before you <code>./configure</code> and everything then works.</p>

@@ -1,0 +1,33 @@
+--- 
+kind: article
+created_at: 2006-03-21 13:32:00 +00:00
+title: Log rotation in Rails apps
+tags: 
+- Uncategorized
+---
+
+<p>Logging in <a href="http://rubyonrails.org">Ruby on Rails</a> tends to be a little&#8230;verbose. For this site, my <code>production.log</code> had built up to <strong>425MB</strong> in 6 months.</p>
+
+
+	<p>Intending to use logrotate, I did a bit of googling and found <a href="http://wiki.rubyonrails.org/rails/pages/DeploymentTips/">this</a> instead, which told me Rails could do it for me with the following code snippet:</p>
+
+
+<pre>
+<code>
+config.logger = Logger.new("#{RAILS_ROOT}/log/#{RAILS_ENV}.log", 50, 1.megabyte)
+</code>
+</pre>
+
+	<p>However it doesn&#8217;t say where in <code>config/environment.rb</code> to put it. I eventually found <a href="http://blog.caboo.se/articles/2005/12/15/who-said-size-is-not-important">this</a> which was more helpful, but still not quite accurate.</p>
+
+
+	<p>So, for the stable version of <a href="http://typosphere.org">Typo</a> find the line beginning with <code>RAILS_DEFAULT_LOGGER</code> and replace it with this:</p>
+
+
+<pre>
+<code>
+RAILS_DEFAULT_LOGGER = Logger.new("#{RAILS_ROOT}/log/#{RAILS_ENV}.log", 50, 1.megabyte)
+</code>
+</pre>
+
+	<p>I&#8217;m sure there&#8217;s an even better way to do, but this worked for me.</p>

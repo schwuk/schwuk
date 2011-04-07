@@ -1,0 +1,100 @@
+--- 
+kind: article
+created_at: 2006-06-29 17:04:25 +01:00
+title: Daemonizing Mongrel
+tags: 
+- apache
+- daemon
+- hosting
+- mongrel
+- proxy
+- rubyonrails
+- Uncategorized
+---
+
+<p>is the current darling of the <a href="http://rubyonrails.org/">Ruby on Rails</a> world, and for a very good reason &#8211; it is an excellent server for your Rails applications. Recently I <a href="http://schwuk.lakeland.edge/articles/2006/06/13/hosting-rails-applications-with-mongrel-apache-2-mod_proxy-on-debian-stable">switched</a> to using Mongrel behind Apache running mod_proxy and I&#8217;ve had no complaints with it.</p>
+
+
+	<p><strong>Before anyone points it out, yes there were some issues with this server recently but they were caused by mod_mono hogging all the memory, and not Mongrel/Rails. Once I disabled Mono normality was restored.</strong></p>
+
+
+	<p>I did have one minor niggle though. After restarting my server a couple of times during the aforementioned Mono problems I had to restart Mongrel manually. I knew there was a better way to do it, but I didn&#8217;t know how. Now I do&#8230;</p>
+
+            <!--more-->
+
+            <p>Here is a simple wrapper script to make any Rails app into a daemon (or service) with Mongrel:</p>
+
+
+<h1>!/bin/bash -e</h1>
+
+
+
+
+	<pre><code>. /lib/lsb/init-functions</code></pre>
+
+
+	<pre><code>MONGREL=/usr/bin/mongrel_rails</code></pre>
+
+
+	<pre><code>PORT=3000
+ENVIRONMENT=production</code></pre>
+
+
+	<pre><code>APPNAME=rails_app
+APPDIR=/path/to/your/app</code></pre>
+
+
+	<pre><code>case "$1" in
+  start)
+    log_begin_msg "Starting mongrel application: $APPNAME"
+    $MONGREL start -c $APPDIR -e $ENVIRONMENT -p $PORT -d
+    ;;
+  stop)
+    log_begin_msg "Stopping mongrel application: $APPNAME"
+    $MONGREL stop -c $APPDIR
+    ;;
+  restart)
+    log_begin_msg "Restarting mongrel application: $APPNAME"
+    $MONGREL restart -c $APPDIR
+    ;;
+  reload|force-reload)
+    ;;
+esac</code></pre>
+
+
+	<pre><code>exit 0</code></pre>
+
+
+	<p>Change `PORT`, `ENVIRONMENT`, `APPNAME` and `APPDIR` to suit and save it in your home folder (or somewhere else).</p>
+
+
+	<p><strong>For the rest of this post assume you&#8217;ve changed nothing and saved it as `rails_app` in your home folder. In addition, the rest of the post is written from an Ubuntu perspective, so gratuitous use of `sudo` can be expected.</strong></p>
+
+
+	<p>First we make it executable:</p>
+
+
+	<pre><code>$ chmod +x rails_app</code></pre>
+
+
+	<p>Then we copy it to `/etc/init.d/`:</p>
+
+
+	<pre><code>$ sudo cp rails_app /etc/init.d/</code></pre>
+
+
+	<p>Now we turn it into a system service:</p>
+
+
+	<pre><code>$ sudo /usr/sbin/update-rc.d rails_app defaults</code></pre>
+
+
+	<p>...and we&#8217;re done. When you reboot the service will start automatically, and you can start, stop and restart with:</p>
+
+
+	<pre><code>$ sudo /etc/init.d/rails_app start
+$ sudo /etc/init.d/rails_app stop
+$ sudo /etc/init.d/rails_app restart</code></pre>
+
+
+	<p>You can have as many of these as you like, but make sure you bind them to different ports. If you want to do something similar with <a href="http://mongrel.rubyforge.org/docs/mongrel_cluster.html">Mongrel clusters</a>, look <a href="http://blog.codahale.com/2006/06/19/time-for-a-grown-up-server-rails-mongrel-apache-capistrano-and-you/">here</a>.</p>
