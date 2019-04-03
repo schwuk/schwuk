@@ -1,0 +1,49 @@
+baseURL = "https://schwuk.com/"
+languageCode = "en-gb"
+title = "David Murphy"
+theme = "split"
+copyright = "&copy;2019 David Murphy. All rights reserved."
+disableKinds = ["taxonomy", "taxonomyTerm"]
+
+[params.visual.image]
+  enable = true
+  file = "images/background.jpg"
+  position = "center center"
+
+# Links List #1
+[[params.links]]
+# Links List #1
+  [params.links.list1]
+    heading = "Connect"
+
+    [[params.links.list1.link]]
+      text = "Instagram"
+      url = "https://www.instagram.com/schwuk/"
+
+    [[params.links.list1.link]]
+      text = "Twitter"
+      url = "https://twitter.com/schwuk"
+
+    [[params.links.list1.link]]
+      text = "LinkedIn"
+      url = "https://www.linkedin.com/in/schwuk"
+
+    [[params.links.list1.link]]
+      text = "Keybase"
+      url = "https://keybase.io/schwuk"
+
+# Links List #2
+  [params.links.list2]
+    heading = "Follow"
+
+    [[params.links.list2.link]]
+      text = "Github"
+      url = "https://github.com/schwuk/"
+
+    [[params.links.list2.link]]
+      text = "GitLab"
+      url = "https://gitlab.com/schwuk"
+
+    [[params.links.list2.link]]
+      text = "Launchpad"
+      url = "https://launchpad.net/~schwuk"
