@@ -2,7 +2,7 @@ baseURL = "https://schwuk.com/"
 languageCode = "en-gb"
 title = "David Murphy"
 theme = "split"
-copyright = "&copy;2019 David Murphy. All rights reserved."
+copyright = "&copy;2020 David Murphy. All rights reserved."
 disableKinds = ["taxonomy", "taxonomyTerm"]
 
 [params.visual.image]
