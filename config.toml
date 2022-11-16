@@ -2,7 +2,7 @@ baseURL = "https://schwuk.com/"
 languageCode = "en-gb"
 title = "David Murphy"
 theme = "split"
-copyright = "&copy;2020 David Murphy. All rights reserved."
+copyright = "&copy;2022 David Murphy. All rights reserved."
 disableKinds = ["taxonomy", "taxonomyTerm"]
 
 [params.visual.image]
@@ -19,6 +19,11 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
     [[params.links.list1.link]]
       text = "Instagram"
       url = "https://www.instagram.com/schwuk/"
+
+    [[params.links.list1.link]]
+      rel = "me"
+      text = "Mastodon"
+      url = "https://mastodon.social/@schwuk"
 
     [[params.links.list1.link]]
       text = "Twitter"
