@@ -30,10 +30,6 @@ text = "Twitter"
 url = "https://twitter.com/schwuk"
 
 [[params.links.list1.link]]
-text = "LinkedIn"
-url = "https://www.linkedin.com/in/schwuk"
-
-[[params.links.list1.link]]
 text = "Keybase"
 url = "https://keybase.io/schwuk"
 
