@@ -1,92 +1,178 @@
---- 
-kind: article
+---
+type: page
 created_at: 2005-03-13 06:10:00 +00:00
 title: Knowing when to keep your mouth shut
-tags: 
-- Uncategorized
+tags:
+    - Uncategorized
 ---
 
-<p>I&#8217;ve started working on a few <acronym title="Open Source Software">OSS</acronym> projects of my own &#8211; one&#8217;s in the planning stage and another is in the <em>code-now-plan-later</em> stage &#8211; and it got me thinking&#8230;</p>
+<p>
+    I&#8217;ve started working on a few
+    <acronym title="Open Source Software">OSS</acronym> projects of my own
+    &#8211; one&#8217;s in the planning stage and another is in the
+    <em>code-now-plan-later</em> stage &#8211; and it got me thinking&#8230;
+</p>
 
+<blockquote>
+    <p>When should you start talking about your projects?</p>
+</blockquote>
 
-	<blockquote>
-		<p>When should you start talking about your projects?</p>
-	</blockquote>
+<p>
+    I know that the <span class="caps">OSS</span> philosphy is to &#8220;release
+    early, release often&#8221; but how soon is too soon?
+</p>
 
+<p>
+    Take the project that&#8217;s still in planning &#8211; if I start talking
+    about it now, others may contribute to the planning and help make a better
+    end-product. On the other hand, it may get so involved trying to satisfy all
+    the contributors that we never get round to writing a single line of code
+    &#8211; look at all the
+    <acronym title="Dead Before Arrival">DBA</acronym> projects on
+    <a href="http://sourceforge.net/">SourceForge</a>. Another problem is that
+    whoever is contributing may have a very different idea of how things should
+    be, which is at odds with your original idea and may lead to you losing
+    interest in what is (or rather now was) your project.
+</p>
 
-	<p>I know that the <span class="caps">OSS</span> philosphy is to &#8220;release early, release often&#8221; but how soon is too soon?</p>
+<p>
+    Now take the second project I mentioned, which currently exists purely as
+    proof-of-concept, and has no real plan other than seeing if my (extremely
+    rough) ideas pan out. With a bit more work, it will be at the stage where I
+    can start letting people play with it, and then comes the problem with the
+    <em>code-now-plan-later</em> strategy &#8211; what do I really want it do?
+</p>
 
+<p>Here&#8217;s my take on things&#8230;</p>
 
-	<p>Take the project that&#8217;s still in planning &#8211; if I start talking about it now, others may contribute to the planning and help make a better end-product. On the other hand, it may get so involved trying to satisfy all the contributors that we never get round to writing a single line of code &#8211; look at all the <acronym title="Dead Before Arrival">DBA</acronym> projects on <a href="http://sourceforge.net/">SourceForge</a>. Another problem is that whoever is contributing may have a very different idea of how things should be, which is at odds with your original idea and may lead to you losing interest in what is (or rather now was) your project.</p>
+<p>Ask yourself this question:</p>
 
+<h3>Why are you doing it?</h3>
 
-	<p>Now take the second project I mentioned, which currently exists purely as proof-of-concept, and has no real plan other than seeing if my (extremely rough) ideas pan out. With a bit more work, it will be at the stage where I can start letting people play with it, and then comes the problem with the <em>code-now-plan-later</em> strategy &#8211; what do I really want it do?</p>
+<p>
+    <strong
+        >Only start a project if it is something you <em>really</em> want to
+        do.</strong
+    >
+    Not because you think others will use it or do the work for you.
+</p>
 
+<p>Now you need to&#8230;</p>
 
-	<p>Here&#8217;s my take on things&#8230;</p>
+<h3>Know where you want to go</h3>
 
+<p>
+    If you&#8217;re got an itch, <strong>write down some ideas</strong> before
+    you scratch it. It doesn&#8217;t matter how pretty or well laid out they are
+    &#8211; you don&#8217;t need a complete requirements document here, just as
+    rough idea of where you&#8217;re going. In Mike Gunderloy&#8217;s book
+    <a href="/entries/30">Coder To Developer</a> he describes the idea of the
+    <strong>Elevator Pitch</strong> &#8211; essentially describing your idea in
+    as brief, but complete (and compelling) way as possible. We&#8217;re not
+    talking a one-liner here, but simple, brief bullet points that describe the
+    main reasons the software should exist. Not &#8220;Create a new IM
+    client&#8221;, but &#8220;Create a new IM client that supports A/B/C
+    protocols, and X/Y/Z features&#8221;. The original idea behind the Elevator
+    Pitch is that you only have a thirty second or so ride to sell your idea,
+    but you should also see it as an opportunity to define an initial vision or
+    (shudder) mission statement for the project &#8211; something that instantly
+    gives people an idea of what you are trying to achieve and something you can
+    refer back to when you feel you&#8217;re drifting off course.
+</p>
 
-	<p>Ask yourself this question:</p>
+<p>Now it&#8217;s time to&#8230;</p>
 
+<h3>Get started</h3>
 
-	<h3>Why are you doing it?</h3>
+<p>
+    Now you know exactly what you&#8217;re trying to achieve, you&#8217;ve got
+    two options:
+</p>
 
+<ol>
+    <li>Continue planning</li>
+    <li>Start coding</li>
+</ol>
 
-	<p><strong>Only start a project if it is something you <em>really</em> want to do.</strong> Not because you think others will use it or do the work for you.</p>
+<p>
+    If you&#8217;re an organised person (I&#8217;m not, though I&#8217;d like to
+    be) you&#8217;ll prefer the first option, but most people will take the
+    second. That&#8217;s fine, just make sure that a) you&#8217;re still
+    focusing on your original idea and b) you&#8217;re not getting distracted by
+    implementation details. The main disadvantages to coding before planning are
+    that you&#8217;ll rarely create the plan (as there&#8217;s far more
+    interesting things to do), and if you do, you&#8217;ll most likely discover
+    that you could have done things much better so you then have to go back and
+    change things. You&#8217;re also far more likely to become of victim of
+    feature creep. This is different from scope creep where the requirements
+    keep expanding &#8211; this where you&#8217;re adding features to the
+    project without any clear idea of how they or evn if they fit in with your
+    original idea.
+</p>
 
+<p>
+    Of course, the best advice is to do both &#8211; plan and implement your
+    application at the same time. The secret to doing this successfully is to
+    <strong>keep them in sync</strong> &#8211; don&#8217;t let your coding get
+    ahead of the plan, and don&#8217;t neglect the code to fine-tune details
+    that may get discarded or prove unfeasible during implementation.
+</p>
 
-	<p>Now you need to&#8230;</p>
+<h3><strong>Now</strong> start talking</h3>
 
+<p>
+    Unless you&#8217;ve got an idea that you really have
+    <strong>no</strong> idea how to implement, work by yourself (or with one or
+    two others, but make sure they are people you can work with &#8211; not
+    strangers in <span class="caps">IRC</span> or on a mailing list) and
+    <strong>quietly</strong> until you&#8217;ve got something people can play
+    with. If during this time you discard the project, then you&#8217;ve not
+    wasted anyones time but your own. Once you&#8217;ve got something tangible,
+    <strong>then</strong> release it to the world and (hopefully) start taking
+    contributions.
+</p>
 
-	<h3>Know where you want to go</h3>
+<h3>Don&#8217;t fall asleep at the wheel</h3>
 
+<p>
+    My final piece of advice is that if others are contributing to
+    <strong>your</strong> project, don&#8217;t ignore them or the project.
+    People will only contribute as long as they feel their contributions are
+    being paid attention to. Even if someone propose a feature that you
+    don&#8217;t want to use, let them know why &#8211; don&#8217;t just discard
+    it.
+</p>
 
-	<p>If you&#8217;re got an itch, <strong>write down some ideas</strong> before you scratch it. It doesn&#8217;t matter how pretty or well laid out they are &#8211; you don&#8217;t need a complete requirements document here, just as rough idea of where you&#8217;re going. In Mike Gunderloy&#8217;s book <a href="/entries/30">Coder To Developer</a> he describes the idea of the <strong>Elevator Pitch</strong> &#8211; essentially describing your idea in  as brief, but complete (and compelling) way as possible. We&#8217;re not talking a one-liner here, but simple, brief bullet points that describe the main reasons the software should exist. Not &#8220;Create a new IM client&#8221;, but &#8220;Create a new IM client that supports A/B/C protocols, and X/Y/Z features&#8221;. The original idea behind the Elevator Pitch is that you only have a thirty second or so ride to sell your idea, but you should also see it as an opportunity to define an initial vision or (shudder) mission statement for the project &#8211; something that instantly gives people an idea of what you are trying to achieve and something you can refer back to when you feel you&#8217;re drifting off course.</p>
+<p>
+    If &#8211; at a later date &#8211; you are no longer interested in the
+    project, either let someone else maintain it or let people know it is no
+    longer maintained.
+</p>
 
+<h3>Conclusion</h3>
 
-	<p>Now it&#8217;s time to&#8230;</p>
+<p>
+    So, in a nutshell &#8211; don&#8217;t talk about your projects until there
+    is something to see/feel, and don&#8217;t neglect your project once it has
+    been released.
+</p>
 
+<p>
+    Although I&#8217;ve really been talking about
+    <span class="caps">OSS</span> projects here, the same ideas about the
+    &#8220;Elevator Pitch&#8221; and simultaneous planning &#38; implementation
+    can be applied to proprietary/commercial projects. I make extensive use use
+    of the latter in my day job, and when done properly works very well.
+    Obviously it doesn&#8217;t suit all projects, but for smaller applications
+    it produces results far quicker than traditional methodologies.
+</p>
 
-	<h3>Get started</h3>
-
-
-	<p>Now you know exactly what you&#8217;re trying to achieve, you&#8217;ve got two options:</p>
-
-
-	<ol>
-	<li>Continue planning</li>
-		<li>Start coding</li>
-	</ol>
-
-
-	<p>If you&#8217;re an organised person (I&#8217;m not, though I&#8217;d like to be) you&#8217;ll prefer the first option, but most people will take the second. That&#8217;s fine, just make sure that a) you&#8217;re still focusing on your original idea and b) you&#8217;re not getting distracted by implementation details. The main disadvantages to coding before planning are that you&#8217;ll rarely create the plan (as there&#8217;s far more interesting things to do), and if you do, you&#8217;ll most likely discover that you could have done things much better so you then have to go back and change things. You&#8217;re also far more likely to become of victim of feature creep. This is different from scope creep where the requirements keep expanding &#8211; this where you&#8217;re adding features to the project without any clear idea of how they or evn if they fit in with your original idea.</p>
-
-
-	<p>Of course, the best advice is to do both &#8211; plan and implement your application at the same time. The secret to doing this successfully is to <strong>keep them in sync</strong> &#8211; don&#8217;t let your coding get ahead of the plan, and don&#8217;t neglect the code to fine-tune details that may get discarded or prove unfeasible during implementation.</p>
-
-
-	<h3><strong>Now</strong> start talking</h3>
-
-
-	<p>Unless you&#8217;ve got an idea that you really have <strong>no</strong> idea how to implement, work by yourself (or with one or two others, but make sure they are people you can work with &#8211; not strangers in <span class="caps">IRC</span> or on a mailing list) and <strong>quietly</strong> until you&#8217;ve got something people can play with. If during this time you discard the project, then you&#8217;ve not wasted anyones time but your own. Once you&#8217;ve got something tangible, <strong>then</strong> release it to the world and (hopefully) start taking contributions.</p>
-
-
-	<h3>Don&#8217;t fall asleep at the wheel</h3>
-
-
-	<p>My final piece of advice is that if others are contributing to <strong>your</strong> project, don&#8217;t ignore them or the project. People will only contribute as long as they feel their contributions are being paid attention to. Even if someone propose a feature that you don&#8217;t want to use, let them know why &#8211; don&#8217;t just discard it.</p>
-
-
-	<p>If &#8211; at a later date &#8211; you are no longer interested in the project, either let someone else maintain it or let people know it is no longer maintained.</p>
-
-
-	<h3>Conclusion</h3>
-
-
-	<p>So, in a nutshell &#8211; don&#8217;t talk about your projects until there is something to see/feel, and don&#8217;t neglect your project once it has been released.</p>
-
-
-	<p>Although I&#8217;ve really been talking about <span class="caps">OSS</span> projects here, the same ideas about the &#8220;Elevator Pitch&#8221; and simultaneous planning &#38; implementation can be applied to proprietary/commercial projects. I make extensive use use of the latter in my day job, and when done properly works very well. Obviously it doesn&#8217;t suit all projects, but for smaller applications it produces results far quicker than traditional methodologies.</p>
-
-
-	<p>If you&#8217;re looking for a tool to help you achieve this, look no further than <a href="http://www.edgewall.com/trac/">Trac</a>. It&#8217;s tight integration of the wiki, Subversion, and tickets makes for a very organic development process, and allows easy maintenance of the  plans and documentation by all members of the development team. Again this is a professional recommendation as I use it to manage all of my projects in my day job, as well as a few of my personal/professional projects.</p>
+<p>
+    If you&#8217;re looking for a tool to help you achieve this, look no further
+    than <a href="http://www.edgewall.com/trac/">Trac</a>. It&#8217;s tight
+    integration of the wiki, Subversion, and tickets makes for a very organic
+    development process, and allows easy maintenance of the plans and
+    documentation by all members of the development team. Again this is a
+    professional recommendation as I use it to manage all of my projects in my
+    day job, as well as a few of my personal/professional projects.
+</p>

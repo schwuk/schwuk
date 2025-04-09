@@ -1,32 +1,43 @@
---- 
-kind: article
+---
+type: page
 created_at: 2004-11-14 06:09:00 +00:00
 title: Mono WebServices - Part 2
-tags: 
-- Uncategorized
+tags:
+    - Uncategorized
 ---
 
 <p>On a roll here&#8230;</p>
 
+<p>
+    I&#8217;ve converted my
+    <a href="/wip/titlelist.aspx">Mono -&gt; MySQL demo page</a> to exist as
+    <a href="/wip/titlelist.asmx">web service</a> as well. Essentially the same
+    background code, just with a bit of abstraction and the
+    <span class="caps">ASP</span>.NET web service syntactic sugar.
+</p>
 
-	<p>I&#8217;ve converted my <a href="/wip/titlelist.aspx">Mono -&gt; MySQL demo page</a> to exist as <a href="/wip/titlelist.asmx">web service</a> as well. Essentially the same background code, just with a bit of abstraction and the <span class="caps">ASP</span>.NET web service syntactic sugar.</p>
+<p>
+    So, now you can read a list of blog entry titles into your own application!
+    Well, as long as your language-of-choice supports
+    <a
+        href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemDataDataSetClassTopic.asp"
+        >DataSets</a
+    >
+    that is.
+</p>
 
+<p>
+    To re-hash some of the instructions in my
+    <a href="/entries/53/mono-webservices">previous</a> post:
+</p>
 
-	<p>So, now you can read a list of blog entry titles into your own application! Well, as long as your language-of-choice supports <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemDataDataSetClassTopic.asp">DataSets</a> that is.</p>
-
-
-	<p>To re-hash some of the instructions in my <a href="/entries/53/mono-webservices">previous</a> post:</p>
-
-
-	<p>Generate a proxy client with:</p>
-
+<p>Generate a proxy client with:</p>
 
 <pre>
   $ wsdl -n:Schwuk http://schwuk.com/wip/titlelist.asmx?wsdl
 </pre>
 
-	<p>Save the following as TitleListClient.cs:</p>
-
+<p>Save the following as TitleListClient.cs:</p>
 
 <pre>
  using System;
@@ -49,14 +60,21 @@ tags:
  }
 </pre>
 
-	<p><em>I&#8217;ve had to include some extra spaces in that code to make Textpattern play nicely&#8230;</em></p>
+<p>
+    <em
+        >I&#8217;ve had to include some extra spaces in that code to make
+        Textpattern play nicely&#8230;</em
+    >
+</p>
 
-
-	<p>Compile with:</p>
-
+<p>Compile with:</p>
 
 <pre>
  mcs -r:System.Data -r:System.Web.Services TitleListClient.cs TitleList.cs
 </pre>
 
-	<p>That&#8217;s it. No MonoDevelop project this time, but you can get a pre-compiled <a href="/wip/TitleListClient.exe">executable</a> if you&#8217;re feeling lazy&#8230;</p>
+<p>
+    That&#8217;s it. No MonoDevelop project this time, but you can get a
+    pre-compiled <a href="/wip/TitleListClient.exe">executable</a> if
+    you&#8217;re feeling lazy&#8230;
+</p>

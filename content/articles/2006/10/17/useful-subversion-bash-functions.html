@@ -1,24 +1,38 @@
---- 
-kind: article
+---
+type: page
 created_at: 2006-10-17 12:36:00 +01:00
 title: Useful subversion bash functions
-tags: 
-- alias
-- bash
-- function
-- Linux
-- subversion
-- svn
+tags:
+    - alias
+    - bash
+    - function
+    - Linux
+    - subversion
+    - svn
 ---
 
-<p>Inspired by bbum&#8217;s <a href="http://www.friday.com/bbum/2006/03/13/useful-subversion-shell-aliases/">Useful subversion shell aliases</a> I decided to to try them out for myself. Of course nothing is ever easy and they needed to be converted from aliases to functions to work under bash, as bash doesn&#8217;t support passing arguments according to Google.</p>
+<p>
+    Inspired by bbum&#8217;s
+    <a
+        href="http://www.friday.com/bbum/2006/03/13/useful-subversion-shell-aliases/"
+        >Useful subversion shell aliases</a
+    >
+    I decided to to try them out for myself. Of course nothing is ever easy and
+    they needed to be converted from aliases to functions to work under bash, as
+    bash doesn&#8217;t support passing arguments according to Google.
+</p>
 
+<p>
+    You can read bbum&#8217;s post for more details but the idea behind these is
+    that after you have run <code>svn status</code> you can
+    copy&#8217;n&#8217;paste the output and have the results opened in your
+    editor of choice.
+</p>
 
-	<p>You can read bbum&#8217;s post for more details but the idea behind these is that after you have run <code>svn status</code> you can copy&#8217;n&#8217;paste  the output and have the results opened in your editor of choice.</p>
-
-
-	<p>So here are my functions, preconfigured to use <a href="http://vim.org">GVim</a> and its diff function:</p>
-
+<p>
+    So here are my functions, preconfigured to use
+    <a href="http://vim.org">GVim</a> and its diff function:
+</p>
 
 <pre>
 <code>
@@ -33,10 +47,14 @@ tags:
 </code>
 </pre>
 
-	<p>Place these in your <code>~/.bashrc</code> and you&#8217;re ready to roll.</p>
+<p>
+    Place these in your <code>~/.bashrc</code> and you&#8217;re ready to roll.
+</p>
 
+<h3>Update</h3>
 
-	<h3>Update</h3>
-
-
-	<p>As <a href="http://www.sungate.co.uk/">davee</a> points out below, you could use his <a href="http://colordiff.sourceforge.net/">colordiff</a> tool for viewing the output instead.</p>
+<p>
+    As <a href="http://www.sungate.co.uk/">davee</a> points out below, you could
+    use his <a href="http://colordiff.sourceforge.net/">colordiff</a> tool for
+    viewing the output instead.
+</p>

@@ -1,24 +1,77 @@
---- 
-kind: article
+---
+type: page
 created_at: 2005-05-10 05:52:00 +01:00
 title: SUSE Q
-tags: 
-- Uncategorized
+tags:
+    - Uncategorized
 ---
 
-<p>I was given a copy of <a href="http://www.novell.com/products/linuxprofessional/"><span class="caps">SUSE 9</span>.3 Professional</a> by a friend who&#8217;d received it as an unwanted gift. Spurred on via <a href="http://viewfromthemountain.typepad.com/david_sobotta_weblog/2005/05/suse_93_linux_u.html">the guy who prefers <span class="caps">SUSE</span> over <span class="caps">OS X</span> Tiger</a>, I mainly wanted to try it  because of the <a href="http://www.go-mono.com/download/suse-93-i586/">easy availability</a> of <a href="http://mono-project.com/">Mono</a> packages for it.</p>
+<p>
+    I was given a copy of
+    <a href="http://www.novell.com/products/linuxprofessional/"
+        ><span class="caps">SUSE 9</span>.3 Professional</a
+    >
+    by a friend who&#8217;d received it as an unwanted gift. Spurred on via
+    <a
+        href="http://viewfromthemountain.typepad.com/david_sobotta_weblog/2005/05/suse_93_linux_u.html"
+        >the guy who prefers <span class="caps">SUSE</span> over
+        <span class="caps">OS X</span> Tiger</a
+    >, I mainly wanted to try it because of the
+    <a href="http://www.go-mono.com/download/suse-93-i586/"
+        >easy availability</a
+    >
+    of <a href="http://mono-project.com/">Mono</a> packages for it.
+</p>
 
+<p>
+    Now my machine is no speed demon &#8211; it&#8217;s a classic Athlon 800 Mhz
+    with 512MB <span class="caps">RAM</span> and a
+    <span class="caps">NVIDIA</span> Ti4600 graphics card
+    <strong>but</strong> it runs
+    <a href="http://www.ubuntulinux.org/">Ubuntu</a> with
+    <strong>no</strong> issues. On this machine, an Ubuntu install (with
+    patches) takes between 30mins to an hour.
+    <span class="caps">SUSE</span> (with patches) was pushing 2&frac12; to 3
+    hours! This was about a 50/50 split install to patches (Ubuntu is probably
+    more like 70/30), but the real shock was the patching process.
+    <code>apt-get dist-upgrade</code> on Ubuntu is a split of roughly 50/50 for
+    downloading and installing the patches. On
+    <span class="caps">SUSE</span> this was more like 30/70 or even 20/80. I
+    kept thinking it was hung!
+</p>
 
-	<p>Now my machine is no speed demon &#8211; it&#8217;s a classic Athlon 800 Mhz with 512MB <span class="caps">RAM</span> and a <span class="caps">NVIDIA</span> Ti4600 graphics card <strong>but</strong> it runs <a href="http://www.ubuntulinux.org/">Ubuntu</a> with <strong>no</strong> issues. On this machine, an Ubuntu install (with patches) takes between 30mins to an hour. <span class="caps">SUSE</span> (with patches) was pushing 2&frac12; to 3 hours! This was about a 50/50 split install to patches (Ubuntu is probably more like 70/30), but the real shock was the patching process. <code>apt-get dist-upgrade</code> on Ubuntu is a split of roughly 50/50 for downloading and installing the patches. On <span class="caps">SUSE</span> this was more like 30/70 or even 20/80. I kept thinking it was hung!</p>
+<p>
+    Once I&#8217;d got <span class="caps">SUSE</span> installed, patched and
+    running, I quickly came to realise how <strong>slow</strong> it is. I
+    don&#8217;t know what it was doing but booting took at least twice as long
+    as Ubuntu, and it was far from responsive whilst running.
+    <a
+        href="http://www.novell.com/products/linuxprofessional/features/yast.html"
+        >YaST</a
+    >
+    was by far the worst culprit of this.
+</p>
 
+<p>
+    Getting back to my main reason for trying
+    <span class="caps">SUSE</span> &#8211; Mono &#8211; I was disappointed to
+    find that it is <strong>not</strong> easy &#8211; you need a
+    <strong>separate</strong> update tool. To top it all off, you can&#8217;t
+    even download the tool (As linked from the Mono download page) at the
+    moment.
+</p>
 
-	<p>Once I&#8217;d got <span class="caps">SUSE</span> installed, patched and running, I quickly came to realise how <strong>slow</strong> it is. I don&#8217;t know what it was doing but booting took at least twice as long as Ubuntu, and it was far from responsive whilst running. <a href="http://www.novell.com/products/linuxprofessional/features/yast.html">YaST</a> was by far the worst culprit of this.</p>
+<p>
+    <span class="caps">SUSE</span> has now been wiped from my machine, and the
+    media returned to its original owner to find a new home for it, and
+    I&#8217;m happy, back in Ubuntu.
+</p>
 
-
-	<p>Getting back to my main reason for trying <span class="caps">SUSE</span> &#8211; Mono &#8211; I was disappointed to find that it is <strong>not</strong> easy &#8211; you need a <strong>separate</strong> update tool. To top it all off, you can&#8217;t even download the tool (As linked from the Mono download page) at the moment.</p>
-
-
-	<p><span class="caps">SUSE</span> has now been wiped from my machine, and the media returned to its original owner to find a new home for it, and I&#8217;m happy, back in Ubuntu.</p>
-
-
-	<p>I am semi-tempted (being as addicted to that new distro smell as I am) to give &#8220;Fedora Core 3&#8221;: another whirl, seeing as there <strong>are</strong> now &#8216;official&#8217; Mono <a href="http://www.go-mono.com/download/fedora-3-i386/">packages</a>  for it (which was one of my main reasons for dissing it <a href="/entries/75">last time</a>).</p>
+<p>
+    I am semi-tempted (being as addicted to that new distro smell as I am) to
+    give &#8220;Fedora Core 3&#8221;: another whirl, seeing as there
+    <strong>are</strong> now &#8216;official&#8217; Mono
+    <a href="http://www.go-mono.com/download/fedora-3-i386/">packages</a> for it
+    (which was one of my main reasons for dissing it
+    <a href="/entries/75">last time</a>).
+</p>
