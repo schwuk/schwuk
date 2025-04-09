@@ -3,7 +3,7 @@ languageCode = "en-gb"
 title = "David Murphy"
 theme = "split"
 copyright = "&copy;2025 David Murphy. All rights reserved."
-disableKinds = ["taxonomy", "taxonomyTerm"]
+disableKinds = ["taxonomy", "page"]
 
 [params.visual.image]
 enable = true
@@ -25,22 +25,22 @@ rel = "me"
 text = "Mastodon"
 url = "https://mastodon.social/@schwuk"
 
-[[params.links.list1.link]]
-text = "Keybase"
-url = "https://keybase.io/schwuk"
+# [[params.links.list1.link]]
+# text = "Keybase"
+# url = "https://keybase.io/schwuk"
 
 # Links List #2
 [params.links.list2]
-heading = "Follow"
+heading = "Code"
 
 [[params.links.list2.link]]
 text = "Github"
 url = "https://github.com/schwuk/"
 
-[[params.links.list2.link]]
-text = "GitLab"
-url = "https://gitlab.com/schwuk"
+# [[params.links.list2.link]]
+# text = "GitLab"
+# url = "https://gitlab.com/schwuk"
 
-[[params.links.list2.link]]
-text = "Launchpad"
-url = "https://launchpad.net/~schwuk"
+# [[params.links.list2.link]]
+# text = "Launchpad"
+# url = "https://launchpad.net/~schwuk"
